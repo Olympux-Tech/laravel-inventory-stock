@@ -16,6 +16,7 @@ class CreateClaimHistoriesTable extends Migration
         Schema::create('claim_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('reference_code_id');
             $table->timestamps();
         });
     }
