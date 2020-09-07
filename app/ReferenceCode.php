@@ -15,4 +15,9 @@ class ReferenceCode extends Model
     {
         return $this->hasMany(ClaimHistory::class);
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
