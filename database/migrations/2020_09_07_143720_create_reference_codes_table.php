@@ -15,6 +15,12 @@ class CreateReferenceCodesTable extends Migration
     {
         Schema::create('reference_codes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedBigInteger('customer_id');
+            $table->string('code');
+            $table->string('point');
+            $table->integer('quantity');
+            $table->date('start_at');
+            $table->date('end_at');
             $table->timestamps();
         });
     }
