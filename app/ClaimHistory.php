@@ -13,6 +13,6 @@ class ClaimHistory extends Model
 
     public function referenceCode()
     {
-        return $this->hasMany(referenceCode::class);
+        return $this->belongsTo(referenceCode::class, 'reference_code_id');
     }
 }

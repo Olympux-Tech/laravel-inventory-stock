@@ -10,4 +10,9 @@ class ReferenceCode extends Model
     {
         return $this->belongsTo(Customer::class);
     }
+
+    public function claimHistory()
+    {
+        return $this->hasMany(ClaimHistory::class);
+    }
 }
