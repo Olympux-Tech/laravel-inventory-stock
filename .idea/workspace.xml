@@ -23,13 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b6bb3f5-6b71-4992-bec1-18015deea7ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReferenceCodeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReferenceCodeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reference_code/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reference_code/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,8 +177,16 @@
       <option name="presentableId" value="Default" />
       <updated>1599487363619</updated>
       <workItem from="1599487366213" duration="6820000" />
-      <workItem from="1599744137037" duration="743000" />
+      <workItem from="1599744137037" duration="1173000" />
     </task>
+    <task id="LOCAL-00001" summary="Basic Setup page reference link">
+      <created>1599745260285</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599745260285</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,16 +204,24 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Basic Setup page reference link" />
+    <option name="LAST_COMMIT_MESSAGE" value="Basic Setup page reference link" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="456" y="162" width="1007" height="736" key="SettingsEditor" timestamp="1599487479100">
       <screen x="0" y="36" width="1920" height="983" />
     </state>
     <state x="456" y="162" width="1007" height="736" key="SettingsEditor/0.36.1920.983@0.36.1920.983" timestamp="1599487479100" />
-    <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup" timestamp="1599744466478">
+    <state x="2475" y="290" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1599745275124">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2475" y="290" width="800" height="542" key="Vcs.Push.Dialog.v2/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1599745275124" />
+    <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup" timestamp="1599745271735">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="623" y="254" width="672" height="678" key="search.everywhere.popup/0.36.1920.983@0.36.1920.983" timestamp="1599489601007" />
     <state x="623" y="256" width="672" height="684" key="search.everywhere.popup/0.36.1920.991@0.36.1920.991" timestamp="1599493639469" />
-    <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1599744466478" />
+    <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1599745271735" />
   </component>
 </project>
