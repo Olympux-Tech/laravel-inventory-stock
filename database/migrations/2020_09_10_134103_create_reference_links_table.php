@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReferenceCodesTable extends Migration
+class CreateReferenceLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateReferenceCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reference_codes', function (Blueprint $table) {
+        Schema::create('reference_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('product_id');
+            $table->unsignedBigInteger('seller_id');
+            $table->unsignedBigInteger('agent_id');
             $table->string('code');
             $table->string('point');
             $table->integer('quantity');
@@ -34,6 +34,6 @@ class CreateReferenceCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reference_codes');
+        Schema::dropIfExists('reference_links');
     }
 }

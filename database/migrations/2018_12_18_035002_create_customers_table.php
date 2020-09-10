@@ -19,6 +19,8 @@ class CreateCustomersTable extends Migration
             $table->text('alamat');
             $table->string('email');
             $table->string('telepon');
+            $table->string('status'); //closed deal/otw/open
+            $table->string('remarks');
             $table->timestamps();
         });
     }

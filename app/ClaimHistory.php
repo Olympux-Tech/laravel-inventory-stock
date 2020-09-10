@@ -11,8 +11,8 @@ class ClaimHistory extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function referenceCode()
+    public function referenceLink()
     {
-        return $this->belongsTo(referenceCode::class, 'reference_code_id');
+        return $this->belongsTo(referenceLink::class, 'reference_code_id');
     }
 }
