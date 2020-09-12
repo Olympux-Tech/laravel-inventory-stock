@@ -19,9 +19,9 @@ class CreateReferenceLinksTable extends Migration
             $table->unsignedBigInteger('agent_id');
             $table->string('reference_code');
             $table->string('reference_url');
-            $table->string('point');
-            $table->integer('quantity');
-            $table->integer('is_active');
+            $table->string('point')->default(null)->nullable();
+            $table->integer('quantity')->default(1);
+            $table->integer('is_active')->default(1);
             $table->date('start_at');
             $table->date('end_at');
             $table->timestamps();
