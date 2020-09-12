@@ -16,8 +16,6 @@
 
         <div class="box-header">
             <h3 class="box-title">Data Products In</h3>
-
-
         </div>
 
         <div class="box-header">
@@ -25,9 +23,6 @@
             <a href="{{ route('exportPDF.productMasukAll') }}" class="btn btn-danger">Export PDF</a>
             <a href="{{ route('exportExcel.productMasukAll') }}" class="btn btn-success">Export Excel</a>
         </div>
-
-
-
 
         <!-- /.box-header -->
         <div class="box-body">
