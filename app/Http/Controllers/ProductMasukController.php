@@ -16,7 +16,7 @@ class ProductMasukController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('role:admin,staff');
+        $this->middleware('role:99');
     }
     /**
      * Display a listing of the resource.
