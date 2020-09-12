@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('role'); // 99 admin 15 agent
+            $table->integer('role')->default(99)->unsigned(); // 99 admin 15 agent
             $table->string('alamat');
             $table->string('telepon');
             $table->string('facebook_url');

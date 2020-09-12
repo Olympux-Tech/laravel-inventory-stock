@@ -32,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\ProductKeluarController' => $baseDir . '/app/Http/Controllers/ProductKeluarController.php',
     'App\\Http\\Controllers\\ProductMasukController' => $baseDir . '/app/Http/Controllers/ProductMasukController.php',
     'App\\Http\\Controllers\\ReferenceCodeController' => $baseDir . '/app/Http/Controllers/ReferenceCodeController.php',
+    'App\\Http\\Controllers\\ReferenceLinkController' => $baseDir . '/app/Http/Controllers/ReferenceLinkController.php',
     'App\\Http\\Controllers\\SaleController' => $baseDir . '/app/Http/Controllers/SaleController.php',
     'App\\Http\\Controllers\\SupplierController' => $baseDir . '/app/Http/Controllers/SupplierController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',

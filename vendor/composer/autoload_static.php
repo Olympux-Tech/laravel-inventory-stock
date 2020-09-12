@@ -581,6 +581,7 @@ class ComposerStaticInitf1c5c2871a8a05d7d7d5338669024c95
         'App\\Http\\Controllers\\ProductKeluarController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductKeluarController.php',
         'App\\Http\\Controllers\\ProductMasukController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductMasukController.php',
         'App\\Http\\Controllers\\ReferenceCodeController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReferenceCodeController.php',
+        'App\\Http\\Controllers\\ReferenceLinkController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReferenceLinkController.php',
         'App\\Http\\Controllers\\SaleController' => __DIR__ . '/../..' . '/app/Http/Controllers/SaleController.php',
         'App\\Http\\Controllers\\SupplierController' => __DIR__ . '/../..' . '/app/Http/Controllers/SupplierController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
