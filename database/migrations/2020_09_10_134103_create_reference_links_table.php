@@ -17,7 +17,7 @@ class CreateReferenceLinksTable extends Migration
             $table->increments('id');
             $table->unsignedBigInteger('seller_id');
             $table->unsignedBigInteger('agent_id');
-            $table->string('reference_code');
+            $table->string('reference_link');
             $table->string('reference_url');
             $table->string('point')->default(null)->nullable();
             $table->integer('quantity')->default(1);

@@ -30,11 +30,11 @@ class User extends Authenticatable
 
     public function scopeAdmin($query)
     {
-        return $query->where('roles', '99');
+        return $query->where('role', '99');
     }
 
     public function scopeAgent($query)
     {
-        return $query->where('roles', '15');
+        return $query->where('role', '15');
     }
 }
