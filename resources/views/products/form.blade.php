@@ -47,9 +47,6 @@
                             <span class="help-block with-errors"></span>
                         </div>
 
-
-
-
                     </div>
                     <!-- /.box-body -->
 

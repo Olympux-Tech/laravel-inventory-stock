@@ -9,6 +9,6 @@ class ReferenceLinkController extends Controller
 {
     public function index()
     {
-        return view('reference_link.index');
+        return view('reference_code.index');
     }
 }
