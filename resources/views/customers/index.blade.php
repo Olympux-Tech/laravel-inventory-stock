@@ -116,6 +116,7 @@
                     $('#alamat').val(data.alamat);
                     $('#email').val(data.email);
                     $('#telepon').val(data.telepon);
+                    $('#status').val(data.status);
                 },
                 error : function() {
                     alert("Nothing Data");
