@@ -29,9 +29,11 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Address</th>
+                    <th>Referrer</th>
+                    <th>Status</th>
                     <th>Email</th>
                     <th>Phone</th>
+                    <th>Address</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -80,9 +82,11 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'nama', name: 'nama'},
-                {data: 'alamat', name: 'alamat'},
+                {data: 'nama', name: 'nama'},
+                {data: 'status', name: 'status'},
                 {data: 'email', name: 'email'},
                 {data: 'telepon', name: 'telepon'},
+                {data: 'alamat', name: 'alamat'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });
@@ -112,6 +116,7 @@
                     $('#alamat').val(data.alamat);
                     $('#email').val(data.email);
                     $('#telepon').val(data.telepon);
+                    $('#status').val(data.status);
                 },
                 error : function() {
                     alert("Nothing Data");

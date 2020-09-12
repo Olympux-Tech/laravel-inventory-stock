@@ -40,6 +40,16 @@
                             <span class="help-block with-errors"></span>
                         </div>
 
+                        <div class="form-group">
+                            <label >Status</label>
+                                <select name="status" id="status">
+                                    <option value="1">Open</option>
+                                    <option value="5">Continue</option>
+                                    <option value="9">Closed-deal</option>
+                                </select>
+                            <span class="help-block with-errors"></span>
+                        </div>                        
+
 
                     </div>
                     <!-- /.box-body -->
