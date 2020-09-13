@@ -80,13 +80,13 @@
             serverSide: true,
             ajax: "{{ route('api.customers') }}",
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'nama', name: 'nama'},
-                {data: 'nama', name: 'nama'},
+                {data: 'c_id', name: 'c_id'},
+                {data: 'c_nama', name: 'c_nama'},
+                {data: 'a_name', name: 'a_name'},
                 {data: 'status', name: 'status'},
-                {data: 'email', name: 'email'},
-                {data: 'telepon', name: 'telepon'},
-                {data: 'alamat', name: 'alamat'},
+                {data: 'c_email', name: 'c_email'},
+                {data: 'c_telepon', name: 'c_telepon'},
+                {data: 'c_alamat', name: 'c_alamat'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

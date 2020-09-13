@@ -8,6 +8,7 @@ use App\Exports\ExportCustomers;
 use App\Imports\CustomersImport;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\DB;
 use Excel;
 use PDF;
 
@@ -24,7 +25,14 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $customers = Customer::all();
+        // $customers = Customer::all();
+        $customers = DB::table('customers')->select('customers.id as c_id', 'customers.email as c_email', 'customers.telepon as c_telepon', 'nama as c_nama', 'customers.alamat as c_alamat', 'status', 'remarks','users.name as a_name', 'users.email as a_email', 'users.id as a_id', 'reference_links.reference_code')
+            ->leftJoin('claim_histories', 'customers.id', '=', 'claim_histories.customer_id')
+            ->leftJoin('reference_links', 'claim_histories.reference_link_id', '=', 'reference_links.id')
+            ->leftJoin('users', 'reference_links.agent_id', '=', 'users.id')
+            ->get();
+
+        // dd($customers);
         return view('customers.index');
     }
 
@@ -130,13 +138,18 @@ class CustomerController extends Controller
 
     public function apiCustomers()
     {
-        $customer = Customer::all();
+        // $customer = Customer::all();
+        $customer = DB::table('customers')->select('customers.id as c_id', 'customers.email as c_email', 'customers.telepon as c_telepon', 'nama as c_nama', 'customers.alamat as c_alamat', 'status', 'remarks','users.name as a_name', 'users.email as a_email', 'users.id as a_id', 'reference_links.reference_code')
+            ->leftJoin('claim_histories', 'customers.id', '=', 'claim_histories.customer_id')
+            ->leftJoin('reference_links', 'claim_histories.reference_link_id', '=', 'reference_links.id')
+            ->leftJoin('users', 'reference_links.agent_id', '=', 'users.id')
+            ->get();
 
         return Datatables::of($customer)
             ->addColumn('action', function($customer){
                 return '<a href="#" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-eye-open"></i> Show</a> ' .
-                    '<a onclick="editForm('. $customer->id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
-                    '<a onclick="deleteData('. $customer->id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
+                    '<a onclick="editForm('. $customer->c_id .')" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a> ' .
+                    '<a onclick="deleteData('. $customer->c_id .')" class="btn btn-danger btn-xs"><i class="glyphicon glyphicon-trash"></i> Delete</a>';
             })
             ->rawColumns(['action'])->make(true);
     }
