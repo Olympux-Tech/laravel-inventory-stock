@@ -66,5 +66,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
 
     Route::get('/dashboard/reference-link', 'ReferenceLinkController@index')->name('admin.page.reference.link');
+    Route::post('/dashboard/reference-link/create', 'ReferenceLinkController@store')->name('admin.create.reference.link');
 });
-

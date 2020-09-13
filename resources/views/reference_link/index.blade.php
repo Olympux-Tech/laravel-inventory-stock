@@ -24,14 +24,21 @@
                 <thead>
                 <tr>
                     <th>Link</th>
-                    <th>Products</th>
                     <th>Agent</th>
                     <th>QTY</th>
                     <th>Point</th>
-                    <th>Status</th>
                 </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                @foreach($referenceLinks as $rl)
+                    <tr>
+                        <td>{{ $rl->reference_link }}</td>
+                        <td>{{ $rl->user->name }}</td>
+                        <td>{{ $rl->max_claim }}</td>
+                        <td>{{ $rl->point }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
             </table>
         </div>
 
@@ -47,10 +54,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form method="POST" action="{{ route('admin.create.reference.link') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Agent</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
+                            <select class="form-control" name="agent_id" id="exampleFormControlSelect1">
                                 @foreach($agents as $a)
                                     <option value="{{ $a->id }}">{{ $a->name }}</option>
                                 @endforeach
@@ -58,11 +66,11 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Claim Limit</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="number" name="max_claim" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Point Worth</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="number" name="point" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                 </div>
                 <div class="modal-footer">

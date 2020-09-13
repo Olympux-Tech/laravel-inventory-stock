@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $query->where('role', '15');
     }
+
+    public function referenceLink()
+    {
+        return $this->hasMany(ReferenceLink::class);
+    }
 }
