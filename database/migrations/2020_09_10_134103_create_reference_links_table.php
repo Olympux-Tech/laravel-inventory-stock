@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateReferenceLinksTable extends Migration
 {
@@ -15,15 +15,13 @@ class CreateReferenceLinksTable extends Migration
     {
         Schema::create('reference_links', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('seller_id');
             $table->unsignedBigInteger('agent_id');
             $table->string('reference_link');
-            $table->string('reference_url');
-            $table->string('point')->default(null)->nullable();
-            $table->integer('quantity')->default(1);
+            $table->string('point')->nullable();
+            $table->integer('max_claim')->default(1);
             $table->integer('is_active')->default(1);
-            $table->date('start_at');
-            $table->date('end_at');
+            $table->date('start_at')->nullable();
+            $table->date('end_at')->nullable();
             $table->timestamps();
         });
     }
