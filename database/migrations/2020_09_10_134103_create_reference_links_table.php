@@ -16,7 +16,8 @@ class CreateReferenceLinksTable extends Migration
         Schema::create('reference_links', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedBigInteger('agent_id');
-            $table->string('reference_link');
+            $table->string('reference_link'); // link/url
+            $table->string('reference_code'); // unique code at the end of url
             $table->string('point')->nullable();
             $table->integer('max_claim')->default(1);
             $table->integer('is_active')->default(1);

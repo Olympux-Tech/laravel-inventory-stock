@@ -24,6 +24,7 @@
                 <thead>
                 <tr>
                     <th>Link</th>
+                    <th>Reference code</th>
                     <th>Agent</th>
                     <th>QTY</th>
                     <th>Point</th>
@@ -33,6 +34,7 @@
                 @foreach($referenceLinks as $rl)
                     <tr>
                         <td>{{ $rl->reference_link }}</td>
+                        <td>{{ $rl->reference_code }}</td>
                         <td>{{ $rl->user->name }}</td>
                         <td>{{ $rl->max_claim }}</td>
                         <td>{{ $rl->point }}</td>

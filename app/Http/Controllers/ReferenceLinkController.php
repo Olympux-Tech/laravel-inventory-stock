@@ -14,6 +14,7 @@ class ReferenceLinkController extends Controller
     {
         $agents = User::agent()->get();
         $referenceLinks = ReferenceLink::all();
+        // dd($referenceLinks);
 
         return view('reference_link.index', compact('agents','referenceLinks'));
     }
