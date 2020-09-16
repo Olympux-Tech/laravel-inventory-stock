@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\ReferenceLink;
 use App\User;
+use App\ClaimHistory;
+use App\Customer;
 
 class ReferenceLinkController extends Controller
 {
@@ -26,5 +28,15 @@ class ReferenceLinkController extends Controller
         $referLink->save();
 
         return redirect()->back();
+    }
+
+    public function linkFetcher()
+    {
+
+    }
+
+    public function viewFetcher()
+    {
+        return view('reference_link.viewFetcher');
     }
 }

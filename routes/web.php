@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/refer/', 'ReferenceLinkController@viewFetcher');
+Route::post('/refer/create', 'ReferenceLinkController@linkFetcher')->name('admin.fetch.reference.link');
+
 Route::get('dashboard', function () {
    return view('layouts.master');
 });
