@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{ route('admin.create.reference.link') }}">
+    <form method="POST" action="{{ route('admin.fetch.reference.link', $found->reference_code) }}">
         @csrf
         <div class="form-group">
             <label >Name</label>

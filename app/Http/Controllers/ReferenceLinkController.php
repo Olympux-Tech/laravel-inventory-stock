@@ -32,18 +32,14 @@ class ReferenceLinkController extends Controller
         return redirect()->back();
     }
 
-    public function linkFetcher($referenceCode)
+    public function linkFetcher(Request $request, $referenceCode)
     {
-        $customer = Customer::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'telepon' => $data['telepon'],
-        ]);
+        $customer = Customer::create($request->all());
 
-        $referenceId = ReferenceLink::where('reference_code', $referenceCode)->first();
+        $referenceId = (new \App\ReferenceLink)->getLink($referenceCode)->first()->id;
         
         $claimHistory = ClaimHistory::create([
-            'customer_id' => $Customer->id,
+            'customer_id' => $customer->id,
             'reference_link_id' => $referenceId,
         ]);
         
@@ -51,11 +47,11 @@ class ReferenceLinkController extends Controller
 
     public function viewFetcher($referenceCode)
     {
-        $find = (new \App\ReferenceLink)->getLink($referenceCode)->count();
+        $found = (new \App\ReferenceLink)->getLink($referenceCode)->first();
 
-        if($find > 0)
+        if($found->count() > 0)
         {
-            return view('reference_link.viewFetcher');
+            return view('reference_link.viewFetcher', compact('found'));
         }
 
         return redirect()->back();
