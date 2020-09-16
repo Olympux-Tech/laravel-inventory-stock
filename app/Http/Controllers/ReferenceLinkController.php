@@ -30,9 +30,21 @@ class ReferenceLinkController extends Controller
         return redirect()->back();
     }
 
-    public function linkFetcher()
+    public function linkFetcher($referenceCode)
     {
+        $customer = Customer::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'telepon' => $data['telepon'],
+        ]);
 
+        $referenceId = ReferenceLink::where('reference_code', $referenceCode)->first();
+        
+        $claimHistory = ClaimHistory::create([
+            'customer_id' => $Customer->id,
+            'reference_link_id' => $referenceId,
+        ]);
+        
     }
 
     public function viewFetcher()
