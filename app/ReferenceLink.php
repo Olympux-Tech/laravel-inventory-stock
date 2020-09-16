@@ -20,5 +20,10 @@ class ReferenceLink extends Model
     {
         return $this->hasMany(ClaimHistory::class);
     }
+
+    public function getLink($filter)
+    {
+        return $this->where('reference_code', $filter);
+    }
     
 }

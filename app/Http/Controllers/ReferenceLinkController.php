@@ -23,8 +23,10 @@ class ReferenceLinkController extends Controller
 
     public function store(ReferenceLinkRequest $request)
     {
+        $referCode = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16);
         $referLink = new ReferenceLink($request->input());
-        $referLink->reference_link = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16);
+        $referLink->reference_link = $referCode;
+        $referLink->reference_code = $referCode;
         $referLink->save();
 
         return redirect()->back();
@@ -47,8 +49,15 @@ class ReferenceLinkController extends Controller
         
     }
 
-    public function viewFetcher()
+    public function viewFetcher($referenceCode)
     {
-        return view('reference_link.viewFetcher');
+        $find = (new \App\ReferenceLink)->getLink($referenceCode)->count();
+
+        if($find > 0)
+        {
+            return view('reference_link.viewFetcher');
+        }
+
+        return redirect()->back();
     }
 }
