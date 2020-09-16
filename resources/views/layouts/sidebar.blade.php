@@ -32,6 +32,7 @@
             <li class="header">HEADER</li>
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('/home') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
+            <li class="active"><a href="{{ route('admin.page.agent') }}"><i class="fa fa-link"></i> <span>Agent</span></a></li>
             <li class="active"><a href="{{ route('categories.index') }}"><i class="fa fa-link"></i> <span>Category</span></a></li>
             <li class="active"><a href="{{ route('products.index') }}"><i class="fa fa-link"></i> <span>Product</span></a></li>
             <li class="active"><a href="{{ route('customers.index') }}"><i class="fa fa-link"></i> <span>Customer</span></a></li>

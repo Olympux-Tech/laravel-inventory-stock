@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
 
     /**
@@ -36,6 +36,11 @@ class User extends Authenticatable
     public function scopeAgent($query)
     {
         return $query->where('role', '15');
+    }
+
+    public function point()
+    {
+        return $this->hasOne(Point::class);
     }
 
     public function referenceLink()
