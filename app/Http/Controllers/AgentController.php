@@ -9,7 +9,9 @@ class AgentController extends Controller
 {
     public function index()
     {
-        $agents = Agent::agent()->get();
+        $agents = Agent::agent()
+        			->leftJoin('points', 'users.id', '=', 'points.user_id')
+        			->get();
 
         return view('agents.index', compact('agents'));
     }

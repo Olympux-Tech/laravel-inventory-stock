@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReferenceLinks\ReferenceLinkRequest;
 use App\Http\Controllers\Controller;
+use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\ReferenceLink;
 use App\User;
@@ -36,11 +38,21 @@ class ReferenceLinkController extends Controller
     {
         $customer = Customer::create($request->all());
 
-        $referenceId = (new \App\ReferenceLink)->getLink($referenceCode)->first()->id;
+        // $referenceData = (new \App\ReferenceLink)->getLink($referenceCode)->first();
+        $referenceData = DB::table('reference_links')->where('reference_code', $referenceCode)
+            ->first();
+
+        $point_to_add = $referenceData->point;
+
+        $pointData = (new \App\Point)->getAgent($referenceData->agent_id)->first();
+        // dd($pointData);
+        $pointData->total_point += $point_to_add;
+        $pointData->point_claimed += $point_to_add;
+        $pointData->save();
         
         $claimHistory = ClaimHistory::create([
             'customer_id' => $customer->id,
-            'reference_link_id' => $referenceId,
+            'reference_link_id' => $referenceData->id,
         ]);
         
     }

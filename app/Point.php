@@ -14,4 +14,9 @@ class Point extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function getAgent($filter)
+    {
+        return $this->where('user_id', $filter);
+    }
 }

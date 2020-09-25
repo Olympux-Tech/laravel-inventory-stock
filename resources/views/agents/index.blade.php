@@ -25,7 +25,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Point</th>
+                    <th>Current Point</th>
+                    <th>Claimed Point</th>
 {{--                    <th>QTY</th>--}}
                 </tr>
                 </thead>
@@ -34,8 +35,14 @@
                     <tr>
                         <td>{{ $a->name }}</td>
                         <td>{{ $a->email }}</td>
-                        <td>{{ $a->point }}</td>
+                        <td>{{ $a->total_point }}</td>
+                        <td>{{ $a->point_claimed }}</td>
 {{--                        <td>{{ $a->point }}</td>--}}
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateAgentPoint">
+                                Deduct Points
+                            </button>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -116,6 +123,44 @@
                     </form>
             </div>
         </div>
+
+    <div class="modal fade" id="updateAgentPoint" tabindex="-1" aria-labelledby="deductAgentPoint" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deductAgentPoint">Deduct Points</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="total_point" class="col-md-4 col-form-label text-md-right">{{ __('Total_point') }}</label>
+                        <label for="point_deduct" class="col-md-4 col-form-label text-md-right">Enter number of points to deduct</label>
+
+                        <div class="col-md-6">
+                            <input id="point_deduct" type="number" class="form-control{{ $errors->has('point_deduct') ? ' is-invalid' : '' }}" name="point_deduct" value="{{ old('point_deduct') }}" required autofocus>
+
+                            @if ($errors->has('point_deduct'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('point_deduct') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+            </div>
+        </div>        
     </div>
 
 @endsection
