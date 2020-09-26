@@ -10,25 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', function () {
+        return view('auth.login');
+    });
 
-Route::get('/', function () {
-    return view('auth.login');
+    Auth::routes();
+
+    Route::get('/refer/{code}', 'ReferenceLinkController@viewFetcher');
+    Route::post('/refer/{code}', 'ReferenceLinkController@linkFetcher')->name('admin.fetch.reference.link');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/refer/{code}', 'ReferenceLinkController@viewFetcher');
-Route::post('/refer/{code}', 'ReferenceLinkController@linkFetcher')->name('admin.fetch.reference.link');
-
-Route::get('dashboard', function () {
-   return view('layouts.master');
-});
-
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('dashboard', function () {
+        return view('layouts.master');
+    });
+    Route::get('/home', 'HomeController@index')->name('home');
+
     Route::resource('categories','CategoryController');
     Route::get('/apiCategories','CategoryController@apiCategories')->name('api.categories');
     Route::get('/exportCategoriesAll','CategoryController@exportCategoriesAll')->name('exportPDF.categoriesAll');
