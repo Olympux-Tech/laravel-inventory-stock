@@ -75,5 +75,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/agent', 'AgentController@index')->name('admin.page.agent');
 
     //point
-    Route::post('/dashboard/point/deduct/{id}', 'PointController@deduct')->name('admin.deduct.agent.point');
+    Route::patch('/dashboard/point/deduct/{id}', 'PointController@deduct')->name('admin.deduct.agent.point');
 });

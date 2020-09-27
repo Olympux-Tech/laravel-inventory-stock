@@ -45,7 +45,7 @@
                         </td>
                     </tr>
 
-                    {{--                    deduct point modal--}}
+                    {{--deduct point modal--}}
                     <div class="modal fade" id="updateAgentPoint{{ $a->id }}" tabindex="-1"
                          aria-labelledby="deductAgentPoint" aria-hidden="true">
                         <div class="modal-dialog">
@@ -58,6 +58,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <form method="POST" action="{{ route('admin.deduct.agent.point', $a->id) }}">
+                                        @method('PATCH')
                                         @csrf
                                         <label for="total_point">
                                             {{ 'Total Point Available: ' . $a->point->total_point }}
