@@ -67,8 +67,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/exportProductMasukAllExcel','ProductMasukController@exportExcel')->name('exportExcel.productMasukAll');
     Route::get('/exportProductMasuk/{id}','ProductMasukController@exportProductMasuk')->name('exportPDF.productMasuk');
 
+    //reference link
     Route::get('/dashboard/reference-link', 'ReferenceLinkController@index')->name('admin.page.reference.link');
     Route::post('/dashboard/reference-link/create', 'ReferenceLinkController@store')->name('admin.create.reference.link');
 
+    //agent
     Route::get('/dashboard/agent', 'AgentController@index')->name('admin.page.agent');
+
+    //point
+    Route::post('/dashboard/point/deduct/{id}', 'PointController@deduct')->name('admin.deduct.agent.point');
 });
