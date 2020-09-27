@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReferenceLinks\ReferenceLinkRequest;
 use App\Http\Controllers\Controller;
+use App\Point;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -38,14 +39,17 @@ class ReferenceLinkController extends Controller
     {
         $customer = Customer::create($request->all());
 
-        // $referenceData = (new \App\ReferenceLink)->getLink($referenceCode)->first();
-        $referenceData = DB::table('reference_links')->where('reference_code', $referenceCode)
+        $referenceData = ReferenceLink::where('reference_code', $referenceCode)
             ->first();
 
         $point_to_add = $referenceData->point;
 
-        $pointData = (new \App\Point)->getAgent($referenceData->agent_id)->first();
-        // dd($pointData);
+        $pointData = Point::firstOrCreate([
+            'user_id' => $referenceData->agent_id,
+            ], [
+                'user_id' => $referenceData->agent_id,
+        ]);
+
         $pointData->total_point += $point_to_add;
         $pointData->point_claimed += $point_to_add;
         $pointData->save();
@@ -54,6 +58,8 @@ class ReferenceLinkController extends Controller
             'customer_id' => $customer->id,
             'reference_link_id' => $referenceData->id,
         ]);
+
+        //should return chat message page here
         
     }
 
@@ -61,11 +67,11 @@ class ReferenceLinkController extends Controller
     {
         $found = (new \App\ReferenceLink)->getLink($referenceCode)->first();
 
-        if($found->count() > 0)
+        if(!blank($found))
         {
             return view('reference_link.viewFetcher', compact('found'));
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('error', 'Not link found!');
     }
 }
