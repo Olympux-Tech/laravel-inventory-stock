@@ -72,6 +72,6 @@ class ReferenceLinkController extends Controller
             return view('reference_link.viewFetcher', compact('found'));
         }
 
-        return redirect()->back()->with('error', 'Not link found!');
+        return redirect()->back()->with('error', 'No link found!');
     }
 }
