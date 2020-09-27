@@ -70,7 +70,7 @@
                                             </label>
                                             <input id="point_deduct" type="number"
                                                    class="form-control {{ $errors->has('point_deduct') ? ' is-invalid' : '' }}"
-                                                   name="point_to_deduct" required autofocus>
+                                                   name="point_to_deduct" min="1" max="{{$a->point->total_point}}" required autofocus>
 
                                             @if ($errors->has('point_deduct'))
                                                 <span class="invalid-feedback" role="alert">
