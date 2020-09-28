@@ -45,7 +45,7 @@
             </div>
     @endif
     <div class="login-logo">
-        <h1><b>Inventory Stock</b> Management</h1>
+        <h1><b>Refo</b> Referrer System</h1>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
