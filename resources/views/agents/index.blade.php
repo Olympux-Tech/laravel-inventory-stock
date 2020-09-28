@@ -108,6 +108,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <form method="POST" action="{{ route('admin.create.agent') }}">
                     @csrf
 
                     <div class="form-group row">

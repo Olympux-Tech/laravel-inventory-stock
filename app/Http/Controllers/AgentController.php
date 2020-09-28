@@ -17,6 +17,29 @@ class AgentController extends Controller
         return view('agents.index', compact('agents'));
     }
 
+    public function create(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'password_confirmation' => 'required'
+        ]);
+
+        $agent = Agent::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role' => 15
+        ]);
+
+        Point::create([
+            'user_id' => $agent->id,
+        ]);
+
+        return redirect()->route('admin.page.agent')->with('success', 'New agent created!');
+    }
+
     public function getAgentPoints($id)
     {
     	$pointsData = Points::find($id);
