@@ -28,7 +28,7 @@ class ReferenceLinkController extends Controller
     {
         $referCode = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 16);
         $referLink = new ReferenceLink($request->input());
-        $referLink->reference_link = $referCode;
+        $referLink->reference_link = url('/refer').'/'.$referCode;
         $referLink->reference_code = $referCode;
         $referLink->save();
 
