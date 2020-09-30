@@ -22,6 +22,12 @@ Route::group(['middleware' => 'web'], function () {
 });
 
 
+Route::get('/chats', 'ChatsController@index');
+
+Route::get('/messages', 'ChatsController@fetchMessages');
+Route::post('/messages', 'ChatsController@sendMessage');
+
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', function () {
         return view('layouts.master');
