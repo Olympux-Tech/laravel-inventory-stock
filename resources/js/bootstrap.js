@@ -52,7 +52,7 @@ window.Pusher = require('pusher-js');
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     encrypted: true
+//     encrypted: true // for custom ssl
 // });
 
 window.Echo = new Echo({
