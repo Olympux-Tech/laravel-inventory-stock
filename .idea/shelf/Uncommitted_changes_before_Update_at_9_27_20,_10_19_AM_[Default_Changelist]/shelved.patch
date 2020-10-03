@@ -1,0 +1,146 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_9_12_20__10_34_PM__Default_Changelist_.xml
+===================================================================
+--- .idea/shelf/Uncommitted_changes_before_Update_at_9_12_20__10_34_PM__Default_Changelist_.xml	(revision 9eee7e2e0c9e4ecb3eab895646ef4c1707310a26)
++++ .idea/shelf/Uncommitted_changes_before_Update_at_9_12_20__10_34_PM__Default_Changelist_.xml	(revision 9eee7e2e0c9e4ecb3eab895646ef4c1707310a26)
+@@ -1,4 +0,0 @@
+-<changelist name="Uncommitted_changes_before_Update_at_9_12_20,_10_34_PM_[Default_Changelist]" date="1599921362565" recycled="true" deleted="true">
+-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_12_20,_10_34_PM_[Default_Changelist]/shelved.patch" />
+-  <option name="DESCRIPTION" value="Uncommitted changes before Update at 9/12/20, 10:34 PM [Default Changelist]" />
+-</changelist>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"7b6bb3f5-6b71-4992-bec1-18015deea7ed\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/routes/web.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/routes/web.php\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitToolBoxStore\">\n    <option name=\"projectConfigVersion\" value=\"2\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/phpoffice/phpspreadsheet\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\n      <path value=\"$PROJECT_DIR$/vendor/psy/psysh\" />\n      <path value=\"$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\n      <path value=\"$PROJECT_DIR$/vendor/dragonmantank/cron-expression\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup\" />\n      <path value=\"$PROJECT_DIR$/vendor/zendframework/zend-diactoros\" />\n      <path value=\"$PROJECT_DIR$/vendor/jakub-onderka/php-console-highlighter\" />\n      <path value=\"$PROJECT_DIR$/vendor/uxweb/sweet-alert\" />\n      <path value=\"$PROJECT_DIR$/vendor/myclabs/deep-copy\" />\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/version\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\n      <path value=\"$PROJECT_DIR$/vendor/fideloper/proxy\" />\n      <path value=\"$PROJECT_DIR$/vendor/filp/whoops\" />\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\n      <path value=\"$PROJECT_DIR$/vendor/laravel/framework\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-code-coverage\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/version\" />\n      <path value=\"$PROJECT_DIR$/vendor/dompdf/dompdf\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/http-message\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php72\" />\n      <path value=\"$PROJECT_DIR$/vendor/laravel/slack-notification-channel\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-reflector\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\n      <path value=\"$PROJECT_DIR$/vendor/mockery/mockery\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/diff\" />\n      <path value=\"$PROJECT_DIR$/vendor/markbaker/complex\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/resource-operations\" />\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpspec/prophecy\" />\n      <path value=\"$PROJECT_DIR$/vendor/php-http/guzzle6-adapter\" />\n      <path value=\"$PROJECT_DIR$/vendor/jakub-onderka/php-console-color\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/global-state\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/recursion-context\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-token-stream\" />\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\n      <path value=\"$PROJECT_DIR$/vendor/maatwebsite/excel\" />\n      <path value=\"$PROJECT_DIR$/vendor/laravelcollective/html\" />\n      <path value=\"$PROJECT_DIR$/vendor/nesbot/carbon\" />\n      <path value=\"$PROJECT_DIR$/vendor/hamcrest/hamcrest-php\" />\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/guzzle\" />\n      <path value=\"$PROJECT_DIR$/vendor/opis/closure\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\n      <path value=\"$PROJECT_DIR$/vendor/lcobucci/jwt\" />\n      <path value=\"$PROJECT_DIR$/vendor/ramsey/uuid\" />\n      <path value=\"$PROJECT_DIR$/vendor/swiftmailer/swiftmailer\" />\n      <path value=\"$PROJECT_DIR$/vendor/barryvdh/laravel-dompdf\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-file-iterator\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/phpunit\" />\n      <path value=\"$PROJECT_DIR$/vendor/laravel/tinker\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-timer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\n      <path value=\"$PROJECT_DIR$/vendor/phenx/php-svg-lib\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\n      <path value=\"$PROJECT_DIR$/vendor/tijsverkoyen/css-to-inline-styles\" />\n      <path value=\"$PROJECT_DIR$/vendor/theseer/tokenizer\" />\n      <path value=\"$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server\" />\n      <path value=\"$PROJECT_DIR$/vendor/erusev/parsedown\" />\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/phar-io/manifest\" />\n      <path value=\"$PROJECT_DIR$/vendor/paragonie/random_compat\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\n      <path value=\"$PROJECT_DIR$/vendor/php-http/httplug\" />\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/psr7\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\n      <path value=\"$PROJECT_DIR$/vendor/php-http/promise\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/object-enumerator\" />\n      <path value=\"$PROJECT_DIR$/vendor/ralouphie/getallheaders\" />\n      <path value=\"$PROJECT_DIR$/vendor/guzzlehttp/promises\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/laravel/nexmo-notification-channel\" />\n      <path value=\"$PROJECT_DIR$/vendor/nunomaduro/collision\" />\n      <path value=\"$PROJECT_DIR$/vendor/sabberworm/php-css-parser\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/simple-cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/environment\" />\n      <path value=\"$PROJECT_DIR$/vendor/fzaninotto/faker\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/exporter\" />\n      <path value=\"$PROJECT_DIR$/vendor/yajra/laravel-datatables-oracle\" />\n      <path value=\"$PROJECT_DIR$/vendor/sebastian/comparator\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\n      <path value=\"$PROJECT_DIR$/vendor/league/flysystem\" />\n      <path value=\"$PROJECT_DIR$/vendor/phenx/php-font-lib\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpunit/php-text-template\" />\n      <path value=\"$PROJECT_DIR$/vendor/nexmo/client\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/graphviz\" />\n      <path value=\"$PROJECT_DIR$/vendor/beyondcode/laravel-er-diagram-generator\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"1hBbJaUwcykaInDYUohQqxM9Wej\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n    <property name=\"settings.editor.selected.configurable\" value=\"reference.settings.ide.settings.uml\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"phpunit.xml\" type=\"PHPUnitRunConfigurationType\" factoryName=\"PHPUnit\">\n      <TestRunner scope=\"XML\" />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"7b6bb3f5-6b71-4992-bec1-18015deea7ed\" name=\"Default Changelist\" comment=\"\" />\n      <created>1599487363619</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1599487363619</updated>\n      <workItem from=\"1599487366213\" duration=\"6820000\" />\n      <workItem from=\"1599744137037\" duration=\"1173000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Basic Setup page reference link\">\n      <created>1599745260285</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1599745260285</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Basic Setup page reference link\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Basic Setup page reference link\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"456\" y=\"162\" width=\"1007\" height=\"736\" key=\"SettingsEditor\" timestamp=\"1599487479100\">\n      <screen x=\"0\" y=\"36\" width=\"1920\" height=\"983\" />\n    </state>\n    <state x=\"456\" y=\"162\" width=\"1007\" height=\"736\" key=\"SettingsEditor/0.36.1920.983@0.36.1920.983\" timestamp=\"1599487479100\" />\n    <state x=\"2475\" y=\"290\" width=\"800\" height=\"542\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1599745275124\">\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1080\" />\n    </state>\n    <state x=\"2475\" y=\"290\" width=\"800\" height=\"542\" key=\"Vcs.Push.Dialog.v2/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080\" timestamp=\"1599745275124\" />\n    <state x=\"2543\" y=\"240\" width=\"672\" height=\"746\" key=\"search.everywhere.popup\" timestamp=\"1599745271735\">\n      <screen x=\"1920\" y=\"0\" width=\"1920\" height=\"1080\" />\n    </state>\n    <state x=\"623\" y=\"254\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.36.1920.983@0.36.1920.983\" timestamp=\"1599489601007\" />\n    <state x=\"623\" y=\"256\" width=\"672\" height=\"684\" key=\"search.everywhere.popup/0.36.1920.991@0.36.1920.991\" timestamp=\"1599493639469\" />\n    <state x=\"2543\" y=\"240\" width=\"672\" height=\"746\" key=\"search.everywhere.popup/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080\" timestamp=\"1599745271735\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 9eee7e2e0c9e4ecb3eab895646ef4c1707310a26)
++++ .idea/workspace.xml	(date 1601173054400)
+@@ -23,9 +23,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="7b6bb3f5-6b71-4992-bec1-18015deea7ed" name="Default Changelist" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_9_12_20__10_34_PM__Default_Changelist_.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/sidebar.blade.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ReferenceLinkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ReferenceLinkController.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -178,6 +179,11 @@
+       <updated>1599487363619</updated>
+       <workItem from="1599487366213" duration="6820000" />
+       <workItem from="1599744137037" duration="1173000" />
++      <workItem from="1599996652584" duration="65000" />
++      <workItem from="1600243960192" duration="7862000" />
++      <workItem from="1600255897531" duration="32000" />
++      <workItem from="1600527079115" duration="1451000" />
++      <workItem from="1601100345363" duration="3664000" />
+     </task>
+     <task id="LOCAL-00001" summary="Basic Setup page reference link">
+       <created>1599745260285</created>
+@@ -186,7 +192,49 @@
+       <option name="project" value="LOCAL" />
+       <updated>1599745260285</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="Feat | faster filter function for admin and agent">
++      <created>1599921265445</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1599921265445</updated>
++    </task>
++    <task id="LOCAL-00003" summary="Fix | table name, add scope to user model and create model for reference link">
++      <created>1599954244973</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1599954244973</updated>
++    </task>
++    <task id="LOCAL-00004" summary="Fix | column name and remove unrelated column">
++      <created>1599982531553</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1599982531553</updated>
++    </task>
++    <task id="LOCAL-00005" summary="Feat | function create and table of referencelink">
++      <created>1599988774345</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1599988774345</updated>
++    </task>
++    <task id="LOCAL-00006" summary="Feat | create customer and store customer ClaimHistory">
++      <created>1600251407320</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1600251407320</updated>
++    </task>
++    <task id="LOCAL-00007" summary="Fix | protect dashboard route from unauthorized access">
++      <created>1601100941951</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1601100941951</updated>
++    </task>
++    <option name="localTasksCounter" value="8" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -206,20 +254,45 @@
+   </component>
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="Basic Setup page reference link" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Basic Setup page reference link" />
++    <MESSAGE value="Feat | faster filter function for admin and agent" />
++    <MESSAGE value="Fix | table name, add scope to user model and create model for reference link" />
++    <MESSAGE value="Fix | column name and remove unrelated column" />
++    <MESSAGE value="Feat | function create and table of referencelink" />
++    <MESSAGE value="Feat | create customer and store customer ClaimHistory" />
++    <MESSAGE value="Fix | protect dashboard route from unauthorized access" />
++    <option name="LAST_COMMIT_MESSAGE" value="Fix | protect dashboard route from unauthorized access" />
+   </component>
+   <component name="WindowStateProjectService">
++    <state x="660" y="332" width="590" height="421" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599956408671">
++      <screen x="0" y="0" width="1920" height="2160" />
++    </state>
++    <state x="660" y="332" width="590" height="421" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.2160@0.0.1920.2160" timestamp="1599956408671" />
++    <state x="182" y="129" width="1536" height="871" key="MergeDialog" timestamp="1599921362102">
++      <screen x="0" y="36" width="1920" height="1044" />
++    </state>
++    <state x="182" y="129" width="1536" height="871" key="MergeDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1599921362102" />
++    <state x="591" y="314" width="728" height="494" key="MultipleFileMergeDialog" timestamp="1599921362105">
++      <screen x="0" y="36" width="1920" height="1044" />
++    </state>
++    <state x="591" y="314" width="728" height="494" key="MultipleFileMergeDialog/0.36.1920.1044@0.36.1920.1044" timestamp="1599921362105" />
+     <state x="456" y="162" width="1007" height="736" key="SettingsEditor" timestamp="1599487479100">
+       <screen x="0" y="36" width="1920" height="983" />
+     </state>
+     <state x="456" y="162" width="1007" height="736" key="SettingsEditor/0.36.1920.983@0.36.1920.983" timestamp="1599487479100" />
+-    <state x="2475" y="290" width="800" height="542" key="Vcs.Push.Dialog.v2" timestamp="1599745275124">
+-      <screen x="1920" y="0" width="1920" height="1080" />
++    <state x="555" y="316" width="800" height="1044" key="Vcs.Push.Dialog.v2" timestamp="1601100966031">
++      <screen x="0" y="36" width="1920" height="1044" />
+     </state>
++    <state x="555" y="1116" width="800" height="1044" key="Vcs.Push.Dialog.v2/0.0.1920.2160@0.0.1920.2160" timestamp="1599988779583" />
++    <state x="555" y="558" key="Vcs.Push.Dialog.v2/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1600251414173" />
++    <state x="555" y="316" width="800" height="542" key="Vcs.Push.Dialog.v2/0.36.1920.1044@0.36.1920.1044" timestamp="1601100966031" />
+     <state x="2475" y="290" width="800" height="542" key="Vcs.Push.Dialog.v2/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1599745275124" />
+-    <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup" timestamp="1599745271735">
+-      <screen x="1920" y="0" width="1920" height="1080" />
++    <state x="623" y="268" width="672" height="722" key="search.everywhere.popup" timestamp="1601172968638">
++      <screen x="0" y="36" width="1920" height="1044" />
+     </state>
++    <state x="623" y="480" width="672" height="1494" key="search.everywhere.popup/0.0.1920.2160@0.0.1920.2160" timestamp="1599988589988" />
++    <state x="623" y="240" width="672" height="747" key="search.everywhere.popup/0.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1600251266974" />
++    <state x="623" y="1320" width="672" height="747" key="search.everywhere.popup/0.1080.1920.1080/0.0.1920.1080@0.1080.1920.1080" timestamp="1600528634162" />
++    <state x="623" y="268" width="672" height="722" key="search.everywhere.popup/0.36.1920.1044@0.36.1920.1044" timestamp="1601172968638" />
+     <state x="623" y="254" width="672" height="678" key="search.everywhere.popup/0.36.1920.983@0.36.1920.983" timestamp="1599489601007" />
+     <state x="623" y="256" width="672" height="684" key="search.everywhere.popup/0.36.1920.991@0.36.1920.991" timestamp="1599493639469" />
+     <state x="2543" y="240" width="672" height="746" key="search.everywhere.popup/1920.0.1920.1080/0.36.1920.1044@1920.0.1920.1080" timestamp="1599745271735" />
