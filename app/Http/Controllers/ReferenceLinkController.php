@@ -60,6 +60,7 @@ class ReferenceLinkController extends Controller
         ]);
 
         //should return chat message page here
+        return redirect()->route('chat.customerChat');
         
     }
 

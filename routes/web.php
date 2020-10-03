@@ -28,7 +28,7 @@ Route::get('/chats', 'ChatsController@index');
 Route::get('/messages', 'ChatsController@fetchMessages');
 Route::post('/messages', 'ChatsController@sendMessage');
 
-Route::get('/customer-chat', 'ChatsController@customerChatView');
+Route::get('/customer-chat', 'ChatsController@customerChatView')->name('chat.customerChat');
 Route::get('/admin-chat', 'ChatsController@adminChatView');
 
 
