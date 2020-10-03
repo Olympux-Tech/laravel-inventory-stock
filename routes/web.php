@@ -1,5 +1,5 @@
 <?php
-
+use App\Events\WebsocketDemoEvent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +12,7 @@
 */
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
+        broadcast(new WebsocketDemoEvent('some data'));
         return view('auth.login');
     });
 
@@ -26,6 +27,9 @@ Route::get('/chats', 'ChatsController@index');
 
 Route::get('/messages', 'ChatsController@fetchMessages');
 Route::post('/messages', 'ChatsController@sendMessage');
+
+Route::get('/customer-chat', 'ChatsController@customerChatView');
+Route::get('/admin-chat', 'ChatsController@adminChatView');
 
 
 Route::group(['middleware' => 'auth'], function () {

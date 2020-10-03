@@ -33,4 +33,12 @@ class ChatsController extends Controller
 
         return ['status' => 'success'];
     }
+
+    public function customerChatView() {
+        return view('chat.customerChat');
+    }
+
+    public function adminChatView() {
+        return view('chat.adminChat');
+    }     
 }
