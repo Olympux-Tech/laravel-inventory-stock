@@ -87,4 +87,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     //point
     Route::patch('/dashboard/point/deduct/{id}', 'PointController@deduct')->name('admin.deduct.agent.point');
+
+    //chat
+    Route::get('/dashboard/chat-admin', 'ChatsController@adminChatView')->name('admin.chat.page');
 });

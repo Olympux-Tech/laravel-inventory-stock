@@ -19726,7 +19726,7 @@ var chat = {
         var data = {
             time: new Date().getTime(),
             user: username,
-            message: message
+            message: ' ' + message
         };
         socket.emit('chat-message', data);
     },

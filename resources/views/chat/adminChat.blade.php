@@ -1,30 +1,31 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-  <meta charset="UTF-8">
-  <title>Refo Chat to Customer</title>
-  <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
-</head>
 
-<body>
-  <ul class="pages">
+@section('top')
 
-    <li class="chat page">
-      <div class="chatArea">
-        <ul class="messages"></ul>
+@endsection
+
+@section('content')
+
+  <div class="container">
+    <div class="form">
+      <h3 class="title">Hello welcome admin!</h3>
+      <input class="usernameInput" type="hidden" value="admin" maxlength="14" />
+    </div>
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">Customer chat</div>
+      <div class="panel-body">
+        <div class="chatArea">
+          <ul class="messages"></ul>
+        </div>
       </div>
-      <input class="inputMessage" placeholder="Type here..." />
-    </li>
-
-    <li class="login page">
-      <div class="form">
-        <h3 class="title">Halo, siapa namamu ?</h3>
-        <input class="usernameInput" type="text" maxlength="14" />
+      <div class="panel-footer text-center">
+        <input class="inputMessage form-control" placeholder="Type here..." />
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
+@endsection
+@section('bot')
   <script src="{{ URL::asset('js/app.js') }}"></script>
-</body>
-
-</html>
+  @endsection

@@ -41,7 +41,7 @@
             <!-- <li class="active"><a href="{{ route('productsOut.index') }}"><i class="fa fa-link"></i> <span>Product Out</span></a></li> -->
             <!-- <li class="active"><a href="{{ route('productsIn.index') }}"><i class="fa fa-link"></i> <span>Product In</span></a></li> -->
             <li class="active"><a href="{{ route('admin.page.reference.link') }}"><i class="fa fa-link"></i> <span>Reference Link</span></a></li>
-
+            <li class="active"><a href="{{ route('admin.chat.page') }}"><i class="fa fa-link"></i> <span>Chat</span></a></li>
         </ul>
         <!-- /.sidebar-menu -->
     </section>
