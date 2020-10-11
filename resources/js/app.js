@@ -126,7 +126,7 @@ const chat = {
     addChatMessage: (data) => {
 
 
-        const $usernameElement = $('<span class="username"/>').text(data.user);
+        const $usernameElement = $('<span class="username"/>').text(data.user+': ');
         const $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
         const $messageElement = $('<li class="message"/>')

@@ -33,7 +33,7 @@
                 <tbody>
                 @foreach($referenceLinks as $rl)
                     <tr>
-                        <td>{{ $rl->reference_link }}</td>
+                        <td><a href="{{$rl->reference_link}}">{{$rl->reference_link}}</a></td>
                         <td>{{ $rl->reference_code }}</td>
                         <td>{{ $rl->user->name }}</td>
                         <td>{{ $rl->max_claim }}</td>

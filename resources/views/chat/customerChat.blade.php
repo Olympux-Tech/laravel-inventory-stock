@@ -1,30 +1,61 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
+
+@section('top')
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+@endsection
 
 <head>
   <meta charset="UTF-8">
   <title>Support Chat for Customer</title>
-  <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+  <!-- <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}"> -->
 </head>
 
-<body>
-  <ul class="pages">
+@section('content')
 
-    <li class="chat page">
-      <div class="chatArea">
-        <ul class="messages"></ul>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+          <img style="width:100%" src="{{ URL::asset('img/customer-chat-bg.png') }}">
       </div>
-      <input class="inputMessage" placeholder="Type here..." />
-    </li>
-
-    <li class="login page">
-      <div class="form">
-        <h3 class="title">Halo, siapa namamu ?</h3>
-        <input class="usernameInput" type="text" maxlength="14" />
+      <div style="padding:5px;background-color:white" class="panel panel-info col-lg-6 pull-right">
+        <div class="form">
+          <h3 class="title">Welcome to Support Chat</h3>
+          <input class="usernameInput" type="hidden" value="customer" maxlength="14" />
+        </div>
+        <br>
+        <div class="panel-heading">
+          <p>Say 'Hi' to start chatting</p>
+        </div>
+        <div class="panel-body" style="min-height:350px">
+          <div class="chatArea">
+            <ul class="messages"></ul>
+          </div>
+        </div>
+        <div class="panel-footer text-center">
+          <input class="inputMessage form-control" placeholder="Type here..." />
+        </div>
       </div>
-    </li>
-  </ul>
-  <script src="{{ URL::asset('js/app.js') }}"></script>
-</body>
+    </div>
+  </div>
+@endsection
 
-</html>
+
+@section('bot')
+    <script src="{{ URL::asset('js/app.js') }}"></script>
+    <!-- DataTables -->
+    <script src=" {{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }} "></script>
+    <script src="{{ asset('assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }} "></script>
+
+    {{-- Validator --}}
+    <script src="{{ asset('assets/validator/validator.min.js') }}"></script>
+
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>--}}
+
+    <script type="text/javascript">
+        function onSubmit() {
+            alert("The form was submitted");
+        }
+    </script>
+
+@endsection
