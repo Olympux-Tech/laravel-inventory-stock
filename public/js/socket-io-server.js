@@ -16,6 +16,26 @@ io.on('connection', function (socket) {
 
     });
 
+    socket.on('joinChat', (data) => { // send message private chat
+
+        var res = data;
+
+        console.log('joinChat', 'sending '+JSON.stringify(res));
+        
+        socket.join(data.id);
+        
+    });    
+
+    socket.on('sendMsg', (data) => { // send message private chat
+
+        var res = data;
+
+        console.log('sendMsg', 'sending '+JSON.stringify(res));
+        
+        // socket.to(data.id).emit('receiveMsg', data);
+        io.to(data.id).emit('receiveMsg', data);
+        
+    });
 
     socket.on('user-join', function(data) {
 
@@ -28,10 +48,13 @@ io.on('connection', function (socket) {
 
     socket.on('disconnect', function(data) {
 
+        var res = data;
+
         console.log('disconnect');
 
-        io.emit('user-unjoin', 'one user');
+        io.emit('user-unjoin', res);
     });
+
 
 });
 

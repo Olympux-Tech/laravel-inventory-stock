@@ -23,9 +23,20 @@
         </div>
         <div class="panel-footer text-center">
           <input class="inputMessage form-control" placeholder="Type here..." />
+        <input class="secretToken" type="hidden" value="#1234" maxlength="14" />
         </div>
       </div>
     </div>
+    <div class="col-lg-4">
+      <ul style="height:500px" class="container">
+        <div class="panel-heading">
+          <h2>Connected customers</h2>
+        </div>
+        <div style="height:100%" class="panel-body">
+          <ul class="userLists"></ul>
+        </div>
+      </ul>
+    </div>    
   </div>
 @endsection
 @section('bot')

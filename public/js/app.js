@@ -383,7 +383,7 @@ module.exports = {
  * Expose `debug()` as the module.
  */
 
-exports = module.exports = __webpack_require__(61);
+exports = module.exports = __webpack_require__(59);
 exports.log = log;
 exports.formatArgs = formatArgs;
 exports.save = save;
@@ -764,15 +764,15 @@ Emitter.prototype.hasListeners = function(event){
  * Module dependencies.
  */
 
-var keys = __webpack_require__(71);
+var keys = __webpack_require__(69);
 var hasBinary = __webpack_require__(27);
-var sliceBuffer = __webpack_require__(73);
-var after = __webpack_require__(74);
-var utf8 = __webpack_require__(75);
+var sliceBuffer = __webpack_require__(71);
+var after = __webpack_require__(72);
+var utf8 = __webpack_require__(73);
 
 var base64encoder;
 if (typeof ArrayBuffer !== 'undefined') {
-  base64encoder = __webpack_require__(76);
+  base64encoder = __webpack_require__(74);
 }
 
 /**
@@ -830,7 +830,7 @@ var err = { type: 'error', data: 'parser error' };
  * Create a blob api even for blob builder when vendor prefixes exist
  */
 
-var Blob = __webpack_require__(77);
+var Blob = __webpack_require__(75);
 
 /**
  * Encodes a packet.
@@ -1564,7 +1564,7 @@ module.exports = defaults;
 
 var debug = __webpack_require__(1)('socket.io-parser');
 var Emitter = __webpack_require__(2);
-var binary = __webpack_require__(63);
+var binary = __webpack_require__(61);
 var isArray = __webpack_require__(22);
 var isBuf = __webpack_require__(23);
 
@@ -1989,9 +1989,9 @@ function error(msg) {
 
 
 
-var base64 = __webpack_require__(64)
-var ieee754 = __webpack_require__(65)
-var isArray = __webpack_require__(66)
+var base64 = __webpack_require__(62)
+var ieee754 = __webpack_require__(63)
+var isArray = __webpack_require__(64)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -3777,7 +3777,7 @@ function isnan (val) {
 
 // browser shim for xmlhttprequest module
 
-var hasCORS = __webpack_require__(69);
+var hasCORS = __webpack_require__(67);
 var globalThis = __webpack_require__(11);
 
 module.exports = function (opts) {
@@ -18062,7 +18062,7 @@ function isBuf(obj) {
  * Module dependencies.
  */
 
-var eio = __webpack_require__(67);
+var eio = __webpack_require__(65);
 var Socket = __webpack_require__(30);
 var Emitter = __webpack_require__(2);
 var parser = __webpack_require__(8);
@@ -18070,7 +18070,7 @@ var on = __webpack_require__(31);
 var bind = __webpack_require__(32);
 var debug = __webpack_require__(1)('socket.io-client:manager');
 var indexOf = __webpack_require__(29);
-var Backoff = __webpack_require__(82);
+var Backoff = __webpack_require__(80);
 
 /**
  * IE6+ hasOwnProperty
@@ -18645,9 +18645,9 @@ Manager.prototype.onreconnect = function () {
  */
 
 var XMLHttpRequest = __webpack_require__(10);
-var XHR = __webpack_require__(70);
-var JSONP = __webpack_require__(78);
-var websocket = __webpack_require__(79);
+var XHR = __webpack_require__(68);
+var JSONP = __webpack_require__(76);
+var websocket = __webpack_require__(77);
 
 /**
  * Export transports.
@@ -18956,7 +18956,7 @@ Polling.prototype.uri = function () {
  * Module requirements.
  */
 
-var isArray = __webpack_require__(72);
+var isArray = __webpack_require__(70);
 
 var toString = Object.prototype.toString;
 var withNativeBlob = typeof Blob === 'function' ||
@@ -19118,7 +19118,7 @@ module.exports = function(arr, obj){
 
 var parser = __webpack_require__(8);
 var Emitter = __webpack_require__(2);
-var toArray = __webpack_require__(81);
+var toArray = __webpack_require__(79);
 var on = __webpack_require__(31);
 var bind = __webpack_require__(32);
 var debug = __webpack_require__(1)('socket.io-client:socket');
@@ -19615,7 +19615,7 @@ module.exports = function(obj, fn){
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(34);
-module.exports = __webpack_require__(83);
+module.exports = __webpack_require__(81);
 
 
 /***/ }),
@@ -19634,56 +19634,51 @@ __webpack_require__(35);
 
 // window.Vue = require('vue');
 
-// import VueChatScroll from 'vue-chat-scroll'
-// Vue.use(VueChatScroll)
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-// Vue.component('chats', require('./components/ChatsComponent.vue'));
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Vue.component('example', require('./components/Example.vue'));
+
 // const app = new Vue({
-//     el: '#app'
+// el: '#app'
 // });
 
 /**
  * import socket io client
  */
-var socket = __webpack_require__(59)('http://localhost:9090');
+var socket = __webpack_require__(57)('http://localhost:9090');
 
 /**
  * Init Component
  */
 var $window = $(window);
 var $loginPage = $('.login.page');
-var $chatPage = $('.chat.page');
 var $usernameInput = $('.usernameInput');
 var $messages = $('.messages');
+var $userLists = $('.userLists');
 var $inputMessage = $('.inputMessage');
+var $token = $('.secretToken');
 
 /**
  * Vars
  */
 var username = void 0;
+var userid = void 0;
+var friendid = void 0;
 var $currentInput = $usernameInput.focus();
 
 /**
  * Keyboard Events
  */
+window.selectThis = function (value) {
+    var friendid = value;
+    console.log(friendid);
+    chat.changeSelectedId(friendid);
+};
+
 $window.keydown(function (event) {
 
     if (!(event.ctrlKey || event.metaKey || event.altKey)) {
@@ -19705,7 +19700,7 @@ var chat = {
 
     handlePressEnter: function handlePressEnter() {
         if (username === undefined) {
-            chat.loginUser($usernameInput.val().trim());
+            chat.loginUser($usernameInput.val().trim(), $token.val().trim());
         } else {
             if (chat.isValidInputMessage()) {
                 chat.sendMessage($inputMessage.val().trim());
@@ -19720,27 +19715,77 @@ var chat = {
         return $inputMessage.val().length > 0 ? true : false;
     },
 
-    sendMessage: function sendMessage(message) {
-        $currentInput.val('');
-        chat.setInputFocus();
-        var data = {
-            time: new Date().getTime(),
-            user: username,
-            message: message
-        };
-        socket.emit('chat-message', data);
+    loginUser: function loginUser(user, token) {
+        if (token === '#1234') {
+            // is admin
+            username = user;
+            chat.setInputFocus();
+            userid = socket.id;
+        } else {
+            // is customer
+            $loginPage.fadeOut();
+            username = user;
+            chat.setInputFocus();
+            userid = socket.id;
+            friendid = socket.id;
+            var data = {
+                id: friendid, // Receiver id
+                username: user,
+                time: new Date().getTime()
+            };
+            socket.emit('user-join', data);
+        }
     },
 
-    loginUser: function loginUser(user) {
-        $loginPage.fadeOut();
-        $chatPage.show();
-        username = user;
-        chat.setInputFocus();
-        socket.emit('user-join', username);
+    changeSelectedId: function changeSelectedId(friend_id) {
+        friendid = friend_id;
+        var data = {
+            id: friendid, // Receiver id
+            time: new Date().getTime()
+        };
+        socket.emit('joinChat', data);
     },
 
     setInputFocus: function setInputFocus() {
         $currentInput = $inputMessage.focus();
+    },
+
+    // sendMessage: (message) => {
+    //     $currentInput.val('');
+    //     chat.setInputFocus();
+    //     const data = {
+    //         time: (new Date()).getTime(),
+    //         user: username,
+    //         message: message
+    //     };
+    //     socket.emit('chat-message', data);
+    // },
+    // this is for private chat
+    sendMessage: function sendMessage(message) {
+        console.log(friendid);
+        $currentInput.val('');
+        chat.setInputFocus();
+        var data = {
+            sendId: userid, // Sender id
+            id: friendid, // Receiver id
+            time: new Date().getTime(),
+            user: username,
+            message: message
+        };
+        socket.emit('sendMsg', data);
+
+        // $.ajax({
+        // url: "/customer-chat",
+        // type:"POST",
+        // headers: {
+        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        // },
+        // data:{
+        //   message_id: userid,
+        //   message: message,
+        // }
+        // });       
+        // chat.addChatMessage(data);
     },
 
     log: function log(message, options) {
@@ -19748,9 +19793,18 @@ var chat = {
         chat.addMessageElement(element, options);
     },
 
-    addChatMessage: function addChatMessage(data) {
+    listUser: function listUser(data, options) {
+        var element = $('<button name="message_id" id="' + data.id + '" value="' + data.id + '" onclick="selectThis(this.value)">').text(data.username);
+        chat.addUserListElement(element, options);
+    },
 
-        var $usernameElement = $('<span class="username"/>').text(data.user + ': ');
+    removeListUser: function removeListUser(data, options) {
+        var myobj = document.getElementById(data.id);
+        myobj.remove();
+    },
+
+    addChatMessage: function addChatMessage(data) {
+        var $usernameElement = $('<span class="username"/>').text(data.user);
         var $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
         var $messageElement = $('<li class="message"/>').data('username', data.user).append($usernameElement, $messageBodyElement);
@@ -19773,6 +19827,23 @@ var chat = {
         }
 
         $messages[0].scrollTop = $messages[0].scrollHeight;
+    },
+
+    addUserListElement: function addUserListElement(element, options) {
+        var $element = $(element);
+
+        if (!options) options = {};
+        if (_typeof(options.fade) === undefined) options.fade = true;
+        if (_typeof(options.prepend) === undefined) options.prepend = false;
+        if (options.fade) $element.hide().fadeIn(150);
+
+        if (options.prepend) {
+            $userLists.prepend($element);
+        } else {
+            $userLists.append($element);
+        }
+
+        $userLists[0].scrollTop = $userLists[0].scrollHeight;
     }
 };
 
@@ -19787,20 +19858,37 @@ socket.on('chat-message', function (data) {
 
     chat.addChatMessage(data);
 });
+
+socket.on('receiveMsg', function (data) {
+    // this.setMessageJson(data); // Add this message to message list data
+    // Determine whether the sendid of this message is the currently chatting object
+    // true page to draw chat message
+    if (data.sendId === friendid) {
+        chat.addChatMessage(data);
+    } else {
+        chat.addChatMessage(data);
+        // chat.log(data + ' fail to find friend');
+        // false the red dot is displayed in the top left corner of a friend's picture, indicating that the friend has sent a new message
+        // $('.me_' + data.sendId).innerHTML = parseInt($('.me_' + data.sendId).innerHTML) + 1;
+        // $('.me_' + data.sendId).style.display = 'block';
+    }
+});
+
 socket.on('user-join', function (data) {
 
-    chat.log(data + ' joined at this room');
+    chat.log(data.username + ' is connected');
+    chat.listUser(data);
 });
 socket.on('user-unjoin', function (data) {
 
-    chat.log(data + ' left this room');
+    chat.log(data.user + ' disconnected');
+    chat.removeListUser(data);
 });
 
 /***/ }),
 /* 35 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
 
 window._ = __webpack_require__(36);
 
@@ -42315,9 +42403,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 57 */,
-/* 58 */,
-/* 59 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -42325,7 +42411,7 @@ module.exports = function spread(callback) {
  * Module dependencies.
  */
 
-var url = __webpack_require__(60);
+var url = __webpack_require__(58);
 var parser = __webpack_require__(8);
 var Manager = __webpack_require__(24);
 var debug = __webpack_require__(1)('socket.io-client');
@@ -42417,7 +42503,7 @@ exports.Socket = __webpack_require__(30);
 
 
 /***/ }),
-/* 60 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -42498,7 +42584,7 @@ function url (uri, loc) {
 
 
 /***/ }),
-/* 61 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -42514,7 +42600,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(62);
+exports.humanize = __webpack_require__(60);
 
 /**
  * Active `debug` instances.
@@ -42729,7 +42815,7 @@ function coerce(val) {
 
 
 /***/ }),
-/* 62 */
+/* 60 */
 /***/ (function(module, exports) {
 
 /**
@@ -42887,7 +42973,7 @@ function plural(ms, n, name) {
 
 
 /***/ }),
-/* 63 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*global Blob,File*/
@@ -43034,7 +43120,7 @@ exports.removeBlobs = function(data, callback) {
 
 
 /***/ }),
-/* 64 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43193,7 +43279,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 65 */
+/* 63 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -43283,7 +43369,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 66 */
+/* 64 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -43294,11 +43380,11 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-module.exports = __webpack_require__(68);
+module.exports = __webpack_require__(66);
 
 /**
  * Exports parser
@@ -43310,7 +43396,7 @@ module.exports.parser = __webpack_require__(3);
 
 
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -44064,7 +44150,7 @@ Socket.prototype.filterUpgrades = function (upgrades) {
 
 
 /***/ }),
-/* 69 */
+/* 67 */
 /***/ (function(module, exports) {
 
 
@@ -44087,7 +44173,7 @@ try {
 
 
 /***/ }),
-/* 70 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* global attachEvent */
@@ -44511,7 +44597,7 @@ function unloadHandler () {
 
 
 /***/ }),
-/* 71 */
+/* 69 */
 /***/ (function(module, exports) {
 
 
@@ -44536,7 +44622,7 @@ module.exports = Object.keys || function keys (obj){
 
 
 /***/ }),
-/* 72 */
+/* 70 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -44547,7 +44633,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 73 */
+/* 71 */
 /***/ (function(module, exports) {
 
 /**
@@ -44582,7 +44668,7 @@ module.exports = function(arraybuffer, start, end) {
 
 
 /***/ }),
-/* 74 */
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = after
@@ -44616,7 +44702,7 @@ function noop() {}
 
 
 /***/ }),
-/* 75 */
+/* 73 */
 /***/ (function(module, exports) {
 
 /*! https://mths.be/utf8js v2.1.2 by @mathias */
@@ -44832,7 +44918,7 @@ module.exports = {
 
 
 /***/ }),
-/* 76 */
+/* 74 */
 /***/ (function(module, exports) {
 
 /*
@@ -44897,7 +44983,7 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 75 */
 /***/ (function(module, exports) {
 
 /**
@@ -45003,7 +45089,7 @@ module.exports = (function() {
 
 
 /***/ }),
-/* 78 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -45239,7 +45325,7 @@ JSONPPolling.prototype.doWrite = function (data, fn) {
 
 
 /***/ }),
-/* 79 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/**
@@ -45263,7 +45349,7 @@ if (typeof WebSocket !== 'undefined') {
 
 if (typeof window === 'undefined') {
   try {
-    NodeWebSocket = __webpack_require__(80);
+    NodeWebSocket = __webpack_require__(78);
   } catch (e) { }
 }
 
@@ -45545,13 +45631,13 @@ WS.prototype.check = function () {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(9).Buffer))
 
 /***/ }),
-/* 80 */
+/* 78 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 81 */
+/* 79 */
 /***/ (function(module, exports) {
 
 module.exports = toArray
@@ -45570,7 +45656,7 @@ function toArray(list, index) {
 
 
 /***/ }),
-/* 82 */
+/* 80 */
 /***/ (function(module, exports) {
 
 
@@ -45661,7 +45747,7 @@ Backoff.prototype.setJitter = function(jitter){
 
 
 /***/ }),
-/* 83 */
+/* 81 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

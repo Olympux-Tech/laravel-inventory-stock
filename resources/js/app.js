@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,30 +8,16 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 
-// import VueChatScroll from 'vue-chat-scroll'
-// Vue.use(VueChatScroll)
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
-// Vue.component('chats', require('./components/ChatsComponent.vue'));
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Vue.component('example', require('./components/Example.vue'));
+
 // const app = new Vue({
-//     el: '#app'
+// el: '#app'
 // });
 
 /**
@@ -45,21 +30,29 @@ const socket = require('socket.io-client')('http://localhost:9090');
  */
 const $window = $(window);
 const $loginPage = $('.login.page');
-const $chatPage = $('.chat.page');
 const $usernameInput = $('.usernameInput');
 const $messages = $('.messages');
+const $userLists = $('.userLists');
 const $inputMessage = $('.inputMessage');
-
+const $token = $('.secretToken');
 
 /**
  * Vars
  */
 let username;
+let userid;
+let friendid;
 let $currentInput = $usernameInput.focus();
 
 /**
  * Keyboard Events
  */
+window.selectThis = function(value) {
+    let friendid = value;
+    console.log(friendid);
+    chat.changeSelectedId(friendid);
+}
+
 $window.keydown(function (event) {
 
     if (!(event.ctrlKey || event.metaKey || event.altKey)) {
@@ -81,7 +74,7 @@ const chat = {
 
     handlePressEnter: () => {
         if (username === undefined) {
-            chat.loginUser($usernameInput.val().trim());
+            chat.loginUser($usernameInput.val().trim(), $token.val().trim());
         } else {
             if (chat.isValidInputMessage()) {
                 chat.sendMessage($inputMessage.val().trim());
@@ -90,32 +83,79 @@ const chat = {
                 chat.setInputFocus();
             }
         }
-
     },
 
     isValidInputMessage: () => $inputMessage.val().length > 0 ? true : false,
 
-    sendMessage: (message) => {
-        $currentInput.val('');
-        chat.setInputFocus();
-        const data = {
-            time: (new Date()).getTime(),
-            user: username,
-            message: message
-        };
-        socket.emit('chat-message', data);
+    loginUser: (user, token) => {
+        if (token === '#1234') { // is admin
+            username = user;
+            chat.setInputFocus();
+            userid = socket.id;
+        } else { // is customer
+            $loginPage.fadeOut();
+            username = user;
+            chat.setInputFocus();
+            userid = socket.id;
+            friendid = socket.id;
+            let data = {
+                id: friendid, // Receiver id
+                username: user,
+                time: (new Date()).getTime()
+            };            
+            socket.emit('user-join', data);
+        }
     },
 
-    loginUser: (user) => {
-        $loginPage.fadeOut();
-        $chatPage.show();
-        username = user;
-        chat.setInputFocus();
-        socket.emit('user-join', username);
+    changeSelectedId: (friend_id) => {
+        friendid = friend_id;
+        let data = {
+            id: friendid, // Receiver id
+            time: (new Date()).getTime()
+        };        
+        socket.emit('joinChat', data);
     },
 
     setInputFocus: () => {
         $currentInput = $inputMessage.focus();
+    },
+
+    // sendMessage: (message) => {
+    //     $currentInput.val('');
+    //     chat.setInputFocus();
+    //     const data = {
+    //         time: (new Date()).getTime(),
+    //         user: username,
+    //         message: message
+    //     };
+    //     socket.emit('chat-message', data);
+    // },
+    // this is for private chat
+    sendMessage: (message) => {
+        console.log(friendid);
+        $currentInput.val('');
+        chat.setInputFocus();
+        let data = {
+            sendId: userid, // Sender id
+            id: friendid, // Receiver id
+            time: (new Date()).getTime(),
+            user: username,
+            message: message
+        };
+        socket.emit('sendMsg', data);
+
+        // $.ajax({
+        // url: "/customer-chat",
+        // type:"POST",
+        // headers: {
+        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        // },
+        // data:{
+        //   message_id: userid,
+        //   message: message,
+        // }
+        // });       
+        // chat.addChatMessage(data);
     },
 
     log: (message, options) => {
@@ -123,10 +163,18 @@ const chat = {
         chat.addMessageElement(element, options);
     },
 
+    listUser: (data, options) => {
+        const element = $('<button name="message_id" id="'+data.id+'" value="'+data.id+'" onclick="selectThis(this.value)">').text(data.username);
+        chat.addUserListElement(element, options);
+    },
+
+    removeListUser: (data, options) => {
+        var myobj = document.getElementById(data.id);
+        myobj.remove();
+    },    
+
     addChatMessage: (data) => {
-
-
-        const $usernameElement = $('<span class="username"/>').text(data.user+': ');
+        const $usernameElement = $('<span class="username"/>').text(data.user);
         const $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
         const $messageElement = $('<li class="message"/>')
@@ -151,9 +199,25 @@ const chat = {
         }
 
         $messages[0].scrollTop = $messages[0].scrollHeight;
-    }
-};
+    },
 
+    addUserListElement: (element, options) => {
+        const $element = $(element);
+
+        if (!options) options = {};
+        if (typeof options.fade === undefined) options.fade = true;
+        if (typeof options.prepend === undefined) options.prepend = false;
+        if (options.fade) $element.hide().fadeIn(150);
+
+        if (options.prepend) {
+            $userLists.prepend($element);
+        } else {
+            $userLists.append($element);
+        }
+
+        $userLists[0].scrollTop = $userLists[0].scrollHeight;
+    }    
+};
 
 /**
  * Events
@@ -166,11 +230,29 @@ socket.on('chat-message', (data) => {
 
     chat.addChatMessage(data);
 });
+
+socket.on('receiveMsg', data => {
+    // this.setMessageJson(data); // Add this message to message list data
+    // Determine whether the sendid of this message is the currently chatting object
+    // true page to draw chat message
+    if (data.sendId === friendid) {
+        chat.addChatMessage(data);
+    } else {
+        chat.addChatMessage(data);
+        // chat.log(data + ' fail to find friend');
+        // false the red dot is displayed in the top left corner of a friend's picture, indicating that the friend has sent a new message
+        // $('.me_' + data.sendId).innerHTML = parseInt($('.me_' + data.sendId).innerHTML) + 1;
+        // $('.me_' + data.sendId).style.display = 'block';
+    }
+});
+
 socket.on('user-join', (data) => {
 
-    chat.log(data + ' joined at this room');
+    chat.log(data.username + ' is connected');
+    chat.listUser(data);
 });
 socket.on('user-unjoin', (data) => {
 
-    chat.log(data + ' left this room');
+    chat.log(data.user + ' disconnected');
+    chat.removeListUser(data);
 });

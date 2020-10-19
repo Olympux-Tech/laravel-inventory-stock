@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-@section('top')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="{{ asset('assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
-@endsection
-
 <head>
   <meta charset="UTF-8">
   <title>Support Chat for Customer</title>
@@ -34,14 +29,18 @@
         </div>
         <div class="panel-footer text-center">
           <input class="inputMessage form-control" placeholder="Type here..." />
+          <input class="userId" type="hidden" value="2"/>
+          <input class="friendId" type="hidden" value="mPMxDa0WehumuIzrAAAF"/>
+          <input class="secretToken" type="hidden" value="#" maxlength="14" />
         </div>
       </div>
     </div>
   </div>
+
 @endsection
 
-
 @section('bot')
+
     <script src="{{ URL::asset('js/app.js') }}"></script>
     <!-- DataTables -->
     <script src=" {{ asset('assets/bower_components/datatables.net/js/jquery.dataTables.min.js') }} "></script>
