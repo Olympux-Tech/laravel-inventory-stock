@@ -7,9 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Category' => $baseDir . '/app/Category.php',
+    'App\\ChatMessages' => $baseDir . '/app/ChatMessages.php',
     'App\\ClaimHistory' => $baseDir . '/app/ClaimHistory.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Customer' => $baseDir . '/app/Customer.php',
+    'App\\Events\\MessageSent' => $baseDir . '/app/Events/MessageSent.php',
+    'App\\Events\\WebsocketDemoEvent' => $baseDir . '/app/Events/WebsocketDemoEvent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Exports\\ExportCategories' => $baseDir . '/app/Exports/ExportCategories.php',
     'App\\Exports\\ExportCustomers' => $baseDir . '/app/Exports/ExportCustomers.php',
@@ -24,6 +27,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\CategoryController' => $baseDir . '/app/Http/Controllers/CategoryController.php',
+    'App\\Http\\Controllers\\ChatsController' => $baseDir . '/app/Http/Controllers/ChatsController.php',
     'App\\Http\\Controllers\\ClaimHistoryController' => $baseDir . '/app/Http/Controllers/ClaimHistoryController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\CustomerController' => $baseDir . '/app/Http/Controllers/CustomerController.php',
@@ -49,6 +53,7 @@ return array(
     'App\\Imports\\ProductsImport' => $baseDir . '/app/Imports/ProductsImport.php',
     'App\\Imports\\SalesImport' => $baseDir . '/app/Imports/SalesImport.php',
     'App\\Imports\\SuppliersImport' => $baseDir . '/app/Imports/SuppliersImport.php',
+    'App\\Message' => $baseDir . '/app/Message.php',
     'App\\Point' => $baseDir . '/app/Point.php',
     'App\\Product' => $baseDir . '/app/Product.php',
     'App\\Product_Keluar' => $baseDir . '/app/Product_Keluar.php',

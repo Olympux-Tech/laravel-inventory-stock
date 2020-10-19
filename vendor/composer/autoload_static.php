@@ -653,9 +653,12 @@ class ComposerStaticInitf1c5c2871a8a05d7d7d5338669024c95
 
     public static $classMap = array (
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
+        'App\\ChatMessages' => __DIR__ . '/../..' . '/app/ChatMessages.php',
         'App\\ClaimHistory' => __DIR__ . '/../..' . '/app/ClaimHistory.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Customer' => __DIR__ . '/../..' . '/app/Customer.php',
+        'App\\Events\\MessageSent' => __DIR__ . '/../..' . '/app/Events/MessageSent.php',
+        'App\\Events\\WebsocketDemoEvent' => __DIR__ . '/../..' . '/app/Events/WebsocketDemoEvent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Exports\\ExportCategories' => __DIR__ . '/../..' . '/app/Exports/ExportCategories.php',
         'App\\Exports\\ExportCustomers' => __DIR__ . '/../..' . '/app/Exports/ExportCustomers.php',
@@ -670,6 +673,7 @@ class ComposerStaticInitf1c5c2871a8a05d7d7d5338669024c95
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
+        'App\\Http\\Controllers\\ChatsController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatsController.php',
         'App\\Http\\Controllers\\ClaimHistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClaimHistoryController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CustomerController' => __DIR__ . '/../..' . '/app/Http/Controllers/CustomerController.php',
@@ -695,6 +699,7 @@ class ComposerStaticInitf1c5c2871a8a05d7d7d5338669024c95
         'App\\Imports\\ProductsImport' => __DIR__ . '/../..' . '/app/Imports/ProductsImport.php',
         'App\\Imports\\SalesImport' => __DIR__ . '/../..' . '/app/Imports/SalesImport.php',
         'App\\Imports\\SuppliersImport' => __DIR__ . '/../..' . '/app/Imports/SuppliersImport.php',
+        'App\\Message' => __DIR__ . '/../..' . '/app/Message.php',
         'App\\Point' => __DIR__ . '/../..' . '/app/Point.php',
         'App\\Product' => __DIR__ . '/../..' . '/app/Product.php',
         'App\\Product_Keluar' => __DIR__ . '/../..' . '/app/Product_Keluar.php',

@@ -40,5 +40,43 @@ class ChatsController extends Controller
 
     public function adminChatView() {
         return view('chat.adminChat');
-    }     
+    }
+
+    /**
+     * Persist message to database from admin
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMessageFromAdmin(Request $request)
+    {
+        $user = Auth::user();
+
+        $message = ChatMessages::create([
+        'message' => $request->message,
+        'tunnel_id' => $request->message_id,
+        'sender_id' => $user->id,
+        'sender_type' => 99,
+        ]);
+
+        return ['status' => 'Message Sent!'];
+    }
+
+    /**
+     * Persist message to database from customer
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function sendMessageFromCustomer(Request $request)
+    {
+        // dd($request);
+        $message = ChatMessages::create([
+        'message' => $request->message,
+        'tunnel_id' => $request->message_id,
+        'sender_type' => 0,
+        ]);
+
+        return ['status' => 'Message Sent!'];
+    }       
 }
