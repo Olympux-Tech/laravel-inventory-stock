@@ -32,7 +32,7 @@ const $window = $(window);
 const $loginPage = $('.login.page');
 const $usernameInput = $('.usernameInput');
 const $messages = $('.messages');
-const $userLists = $('.userLists');
+const $userLists = $('.user-lists');
 const $inputMessage = $('.inputMessage');
 const $token = $('.secretToken');
 
@@ -51,6 +51,10 @@ window.selectThis = function(value) {
     let friendid = value;
     console.log(friendid);
     chat.changeSelectedId(friendid);
+}
+
+window.removeThis = function(value) {
+    chat.removeListUser(value);
 }
 
 $window.keydown(function (event) {
@@ -120,16 +124,6 @@ const chat = {
         $currentInput = $inputMessage.focus();
     },
 
-    // sendMessage: (message) => {
-    //     $currentInput.val('');
-    //     chat.setInputFocus();
-    //     const data = {
-    //         time: (new Date()).getTime(),
-    //         user: username,
-    //         message: message
-    //     };
-    //     socket.emit('chat-message', data);
-    // },
     // this is for private chat
     sendMessage: (message) => {
         console.log(friendid);
@@ -159,25 +153,28 @@ const chat = {
     },
 
     log: (message, options) => {
-        const element = $('<li>').addClass('log').text(message);
+        const element = $('<li style="list-style-type:none">').addClass('log').text(message);
         chat.addMessageElement(element, options);
     },
 
     listUser: (data, options) => {
-        const element = $('<button name="message_id" id="'+data.id+'" value="'+data.id+'" onclick="selectThis(this.value)">').text(data.username);
+        const userButton = $('<button style="width: 90%; background-color: white;" class="btn" name="message_id" value="'+data.id+'" onclick="selectThis(this.value)">').text(data.username);
+        const userClose = $('<button style="width: 10%; background-color: white;" class="btn" value="'+data.id+'" onclick="removeThis(this.value)">').text('X');
+        const element = $('<li id="'+data.id+'" class="list-group-item"/>')
+                        .append(userButton, userClose);
         chat.addUserListElement(element, options);
     },
 
-    removeListUser: (data, options) => {
-        var myobj = document.getElementById(data.id);
+    removeListUser: (data) => {
+        var myobj = document.getElementById(data);
         myobj.remove();
     },    
 
     addChatMessage: (data) => {
-        const $usernameElement = $('<span class="username"/>').text(data.user);
+        const $usernameElement = $('<span class="username"/>').text(data.user+': ');
         const $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
-        const $messageElement = $('<li class="message"/>')
+        const $messageElement = $('<li class="list-group-item"/>')
             .data('username', data.user)
             .append($usernameElement, $messageBodyElement);
 
@@ -241,8 +238,6 @@ socket.on('receiveMsg', data => {
         chat.addChatMessage(data);
         // chat.log(data + ' fail to find friend');
         // false the red dot is displayed in the top left corner of a friend's picture, indicating that the friend has sent a new message
-        // $('.me_' + data.sendId).innerHTML = parseInt($('.me_' + data.sendId).innerHTML) + 1;
-        // $('.me_' + data.sendId).style.display = 'block';
     }
 });
 
@@ -254,5 +249,4 @@ socket.on('user-join', (data) => {
 socket.on('user-unjoin', (data) => {
 
     chat.log(data.user + ' disconnected');
-    chat.removeListUser(data);
 });

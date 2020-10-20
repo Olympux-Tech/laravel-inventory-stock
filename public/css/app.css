@@ -11967,3 +11967,12 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
+.user-lists {
+  list-style-type: none !important;
+}
+
+.user-lists-button {
+  width: 100%;
+  background-color: white !important;
+}
+

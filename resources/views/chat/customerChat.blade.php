@@ -24,7 +24,7 @@
         </div>
         <div class="panel-body" style="min-height:350px">
           <div class="chatArea">
-            <ul class="messages"></ul>
+            <ul class="messages list-group col-lg-8"></ul>
           </div>
         </div>
         <div class="panel-footer text-center">
