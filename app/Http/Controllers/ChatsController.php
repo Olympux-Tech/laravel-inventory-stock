@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\ChatMessages;
 use App\Events\MessageSent;
+use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
@@ -47,7 +48,7 @@ class ChatsController extends Controller
     public function adminChatLoad($id) {
 
         $res = ChatMessages::where('tunnel_id', $id)
-                ->orderBy('created_at', 'desc')
+                ->orderBy('created_at', 'asc')
                 ->get();;
 
         echo json_encode($res);
@@ -67,6 +68,8 @@ class ChatsController extends Controller
         $message = ChatMessages::create([
         'message' => $request->message,
         'tunnel_id' => $request->message_id,
+        'username' => $request->username,
+        'admin_id' => $user->id,
         'sender_id' => $user->id,
         'sender_type' => 99,
         ]);
@@ -92,6 +95,4 @@ class ChatsController extends Controller
 
         return ['status' => 'Message Sent!'];
     }
-
-
 }

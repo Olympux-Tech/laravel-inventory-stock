@@ -89,5 +89,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     //chat
     Route::get('/dashboard/chat-admin', 'ChatsController@adminChatView')->name('admin.chat.page');
+    Route::post('/dashboard/chat-admin', 'ChatsController@sendMessageFromAdmin');
     Route::get('/dashboard/admin-chat/{id}','ChatsController@adminChatLoad');
 });

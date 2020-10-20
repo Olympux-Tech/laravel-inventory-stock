@@ -19760,7 +19760,14 @@ var chat = {
 
     // this is for private chat
     sendMessage: function sendMessage(message) {
-        console.log(friendid);
+        if ($token === '#1234') {
+            // Check if admin
+            var url = "/dashboard/chat-admin";
+            var tunnel_id = friendid;
+        } else {
+            var url = "/customer-chat";
+            var tunnel_id = userid;
+        }
         $currentInput.val('');
         chat.setInputFocus();
         var data = {
@@ -19776,11 +19783,11 @@ var chat = {
             }
         });
         $.ajax({
-            url: "/customer-chat",
+            url: url,
             type: "POST",
             data: {
                 _token: $('meta[name="csrf-token"]').attr('content'),
-                message_id: userid,
+                message_id: tunnel_id,
                 message: message,
                 username: username
             },
@@ -19903,7 +19910,7 @@ socket.on('user-join', function (data) {
 
 socket.on('user-unjoin', function (data) {
 
-    chat.log(data.user + ' disconnected');
+    // chat.log(data.user + ' disconnected');
 });
 
 /***/ }),
