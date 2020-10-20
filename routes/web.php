@@ -29,8 +29,7 @@ Route::get('/messages', 'ChatsController@fetchMessages');
 Route::post('/messages', 'ChatsController@sendMessage');
 
 Route::get('/customer-chat', 'ChatsController@customerChatView')->name('chat.customerChat');
-Route::get('/admin-chat', 'ChatsController@adminChatView');
-
+Route::post('/customer-chat', 'ChatsController@sendMessageFromCustomer')->name('chat.customerStoreChat');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('dashboard', function () {
@@ -90,4 +89,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     //chat
     Route::get('/dashboard/chat-admin', 'ChatsController@adminChatView')->name('admin.chat.page');
+    Route::get('/dashboard/admin-chat/{id}','ChatsController@adminChatLoad');
 });

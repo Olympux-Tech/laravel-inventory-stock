@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\ChatMessages;
 use App\Events\MessageSent;
 
 class ChatsController extends Controller
@@ -42,6 +43,17 @@ class ChatsController extends Controller
         return view('chat.adminChat');
     }
 
+    // load chat by tunnel id
+    public function adminChatLoad($id) {
+
+        $res = ChatMessages::where('tunnel_id', $id)
+                ->orderBy('created_at', 'desc')
+                ->get();;
+
+        echo json_encode($res);
+        exit;
+    }    
+
     /**
      * Persist message to database from admin
      *
@@ -74,9 +86,12 @@ class ChatsController extends Controller
         $message = ChatMessages::create([
         'message' => $request->message,
         'tunnel_id' => $request->message_id,
+        'username' => $request->username,
         'sender_type' => 0,
         ]);
 
         return ['status' => 'Message Sent!'];
-    }       
+    }
+
+
 }

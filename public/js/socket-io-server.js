@@ -16,13 +16,20 @@ io.on('connection', function (socket) {
 
     });
 
-    socket.on('joinChat', (data) => { // send message private chat
+    socket.on('joinChat', (data) => { // join private chat
 
         var res = data;
 
         console.log('joinChat', 'sending '+JSON.stringify(res));
         
         socket.join(data.id);
+        
+    });
+
+    socket.on('leaveChat', (data) => { // leave private chat
+        var res = data;
+        // console.log('leaveChat', 'leaving '+JSON.stringify(res));
+        socket.leave(data);
         
     });    
 

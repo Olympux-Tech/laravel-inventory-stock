@@ -19,6 +19,7 @@ class CreateChatMessagesTable extends Migration
             $table->integer('sender_id')->unsigned()->nullable(); // could be admin id or customer id
             $table->integer('sender_type')->unsigned(); // admin = 99 / customer = 0 
             $table->string('tunnel_id'); // websocket id
+            $table->string('username'); // username
             $table->integer('active')->default(1); // 0 = inactive / 1 =active
             $table->text('message');
             $table->timestamps();

@@ -49,8 +49,9 @@ let $currentInput = $usernameInput.focus();
  */
 window.selectThis = function(value) {
     let friendid = value;
-    console.log(friendid);
+    // console.log(friendid);
     chat.changeSelectedId(friendid);
+    chat.loadChat(friendid);
 }
 
 window.removeThis = function(value) {
@@ -92,7 +93,7 @@ const chat = {
     isValidInputMessage: () => $inputMessage.val().length > 0 ? true : false,
 
     loginUser: (user, token) => {
-        if (token === '#1234') { // is admin
+        if (token === '#1234') { // is admin !!need to auto-fetch
             username = user;
             chat.setInputFocus();
             userid = socket.id;
@@ -112,11 +113,14 @@ const chat = {
     },
 
     changeSelectedId: (friend_id) => {
+        if (friendid) {
+            socket.emit('leaveChat', friendid);
+        }
         friendid = friend_id;
         let data = {
             id: friendid, // Receiver id
             time: (new Date()).getTime()
-        };        
+        };
         socket.emit('joinChat', data);
     },
 
@@ -133,22 +137,30 @@ const chat = {
             sendId: userid, // Sender id
             id: friendid, // Receiver id
             time: (new Date()).getTime(),
-            user: username,
+            username: username,
             message: message
         };
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+        url: "/customer-chat",
+        type:"POST",
+        data:{
+            _token: $('meta[name="csrf-token"]').attr('content'),
+            message_id: userid,
+            message: message,
+            username: username,
+        },
+        dataType: 'JSON',
+        success: function (data) { 
+        console.log(data)
+        }
+        });       
         socket.emit('sendMsg', data);
 
-        // $.ajax({
-        // url: "/customer-chat",
-        // type:"POST",
-        // headers: {
-        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        // },
-        // data:{
-        //   message_id: userid,
-        //   message: message,
-        // }
-        // });       
         // chat.addChatMessage(data);
     },
 
@@ -156,6 +168,28 @@ const chat = {
         const element = $('<li style="list-style-type:none">').addClass('log').text(message);
         chat.addMessageElement(element, options);
     },
+
+    loadChat: (tunnel_id) => {
+        $.ajax({
+            url: 'admin-chat/'+tunnel_id,
+            type: 'get',
+            dataType: 'json',
+            success: function(response){
+                var len = 0;
+                $('.messages').empty(); // Empty box
+                if (response) {
+                // console.log(response);
+                len = response.length;
+                }
+                if (len > 0) {
+                    for(var i=0; i<len; i++) {
+                        var data = response[i];
+                        chat.addChatMessage(data);
+                    }
+                }
+            }
+        });
+    },    
 
     listUser: (data, options) => {
         const userButton = $('<button style="width: 90%; background-color: white;" class="btn" name="message_id" value="'+data.id+'" onclick="selectThis(this.value)">').text(data.username);
@@ -171,11 +205,11 @@ const chat = {
     },    
 
     addChatMessage: (data) => {
-        const $usernameElement = $('<span class="username"/>').text(data.user+': ');
+        const $usernameElement = $('<span class="username"/>').text(data.username+': ');
         const $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
         const $messageElement = $('<li class="list-group-item"/>')
-            .data('username', data.user)
+            .data('username', data.username)
             .append($usernameElement, $messageBodyElement);
 
         chat.addMessageElement($messageElement);
@@ -223,29 +257,23 @@ socket.on('connect', () => {
 
     console.log('connected');
 });
+
 socket.on('chat-message', (data) => {
 
     chat.addChatMessage(data);
 });
 
 socket.on('receiveMsg', data => {
-    // this.setMessageJson(data); // Add this message to message list data
-    // Determine whether the sendid of this message is the currently chatting object
-    // true page to draw chat message
-    if (data.sendId === friendid) {
-        chat.addChatMessage(data);
-    } else {
-        chat.addChatMessage(data);
-        // chat.log(data + ' fail to find friend');
-        // false the red dot is displayed in the top left corner of a friend's picture, indicating that the friend has sent a new message
-    }
+
+    chat.addChatMessage(data);
 });
 
 socket.on('user-join', (data) => {
 
-    chat.log(data.username + ' is connected');
+    // chat.log(data.username + ' is connected');
     chat.listUser(data);
 });
+
 socket.on('user-unjoin', (data) => {
 
     chat.log(data.user + ' disconnected');

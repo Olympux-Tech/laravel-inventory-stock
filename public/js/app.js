@@ -19675,8 +19675,9 @@ var $currentInput = $usernameInput.focus();
  */
 window.selectThis = function (value) {
     var friendid = value;
-    console.log(friendid);
+    // console.log(friendid);
     chat.changeSelectedId(friendid);
+    chat.loadChat(friendid);
 };
 
 window.removeThis = function (value) {
@@ -19721,7 +19722,7 @@ var chat = {
 
     loginUser: function loginUser(user, token) {
         if (token === '#1234') {
-            // is admin
+            // is admin !!need to auto-fetch
             username = user;
             chat.setInputFocus();
             userid = socket.id;
@@ -19742,6 +19743,9 @@ var chat = {
     },
 
     changeSelectedId: function changeSelectedId(friend_id) {
+        if (friendid) {
+            socket.emit('leaveChat', friendid);
+        }
         friendid = friend_id;
         var data = {
             id: friendid, // Receiver id
@@ -19763,28 +19767,58 @@ var chat = {
             sendId: userid, // Sender id
             id: friendid, // Receiver id
             time: new Date().getTime(),
-            user: username,
+            username: username,
             message: message
         };
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/customer-chat",
+            type: "POST",
+            data: {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                message_id: userid,
+                message: message,
+                username: username
+            },
+            dataType: 'JSON',
+            success: function success(data) {
+                console.log(data);
+            }
+        });
         socket.emit('sendMsg', data);
 
-        // $.ajax({
-        // url: "/customer-chat",
-        // type:"POST",
-        // headers: {
-        //     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        // },
-        // data:{
-        //   message_id: userid,
-        //   message: message,
-        // }
-        // });       
         // chat.addChatMessage(data);
     },
 
     log: function log(message, options) {
         var element = $('<li style="list-style-type:none">').addClass('log').text(message);
         chat.addMessageElement(element, options);
+    },
+
+    loadChat: function loadChat(tunnel_id) {
+        $.ajax({
+            url: 'admin-chat/' + tunnel_id,
+            type: 'get',
+            dataType: 'json',
+            success: function success(response) {
+                var len = 0;
+                $('.messages').empty(); // Empty box
+                if (response) {
+                    // console.log(response);
+                    len = response.length;
+                }
+                if (len > 0) {
+                    for (var i = 0; i < len; i++) {
+                        var data = response[i];
+                        chat.addChatMessage(data);
+                    }
+                }
+            }
+        });
     },
 
     listUser: function listUser(data, options) {
@@ -19800,10 +19834,10 @@ var chat = {
     },
 
     addChatMessage: function addChatMessage(data) {
-        var $usernameElement = $('<span class="username"/>').text(data.user + ': ');
+        var $usernameElement = $('<span class="username"/>').text(data.username + ': ');
         var $messageBodyElement = $('<span class="messageBody">').text(data.message);
 
-        var $messageElement = $('<li class="list-group-item"/>').data('username', data.user).append($usernameElement, $messageBodyElement);
+        var $messageElement = $('<li class="list-group-item"/>').data('username', data.username).append($usernameElement, $messageBodyElement);
 
         chat.addMessageElement($messageElement);
     },
@@ -19850,29 +19884,23 @@ socket.on('connect', function () {
 
     console.log('connected');
 });
+
 socket.on('chat-message', function (data) {
 
     chat.addChatMessage(data);
 });
 
 socket.on('receiveMsg', function (data) {
-    // this.setMessageJson(data); // Add this message to message list data
-    // Determine whether the sendid of this message is the currently chatting object
-    // true page to draw chat message
-    if (data.sendId === friendid) {
-        chat.addChatMessage(data);
-    } else {
-        chat.addChatMessage(data);
-        // chat.log(data + ' fail to find friend');
-        // false the red dot is displayed in the top left corner of a friend's picture, indicating that the friend has sent a new message
-    }
+
+    chat.addChatMessage(data);
 });
 
 socket.on('user-join', function (data) {
 
-    chat.log(data.username + ' is connected');
+    // chat.log(data.username + ' is connected');
     chat.listUser(data);
 });
+
 socket.on('user-unjoin', function (data) {
 
     chat.log(data.user + ' disconnected');
