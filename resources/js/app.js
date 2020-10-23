@@ -130,7 +130,8 @@ const chat = {
 
     // this is for private chat
     sendMessage: (message) => {
-        if ($token === '#1234') { // Check if admin
+        // console.log($token);
+        if ($token.val().trim() === '#1234') { // Check if admin
             var url = "/dashboard/chat-admin";
             var tunnel_id = friendid;
         } else {
