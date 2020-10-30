@@ -29,7 +29,6 @@ const socket = require('socket.io-client')('http://localhost:9090');
  * Init Component
  */
 const $window = $(window);
-const $loginPage = $('.login.page');
 const $usernameInput = $('.usernameInput');
 const $messages = $('.messages');
 const $userLists = $('.user-lists');
@@ -48,10 +47,9 @@ let $currentInput = $usernameInput.focus();
  * Keyboard Events
  */
 window.selectThis = function(value) {
-    let friendid = value;
-    // console.log(friendid);
-    chat.changeSelectedId(friendid);
-    chat.loadChat(friendid);
+    friendid = value;
+    chat.changeSelectedId();
+    chat.loadChat();
 }
 
 window.removeThis = function(value) {
@@ -98,7 +96,6 @@ const chat = {
             chat.setInputFocus();
             userid = socket.id;
         } else { // is customer
-            $loginPage.fadeOut();
             username = user;
             chat.setInputFocus();
             userid = socket.id;
@@ -112,11 +109,11 @@ const chat = {
         }
     },
 
-    changeSelectedId: (friend_id) => {
+    changeSelectedId: () => {
         if (friendid) {
             socket.emit('leaveChat', friendid);
         }
-        friendid = friend_id;
+        console.log('current friend id '+friendid);
         let data = {
             id: friendid, // Receiver id
             time: (new Date()).getTime()
@@ -176,9 +173,9 @@ const chat = {
         chat.addMessageElement(element, options);
     },
 
-    loadChat: (tunnel_id) => {
+    loadChat: () => {
         $.ajax({
-            url: 'admin-chat/'+tunnel_id,
+            url: 'admin-chat/'+friendid,
             type: 'get',
             dataType: 'json',
             success: function(response){

@@ -19655,7 +19655,6 @@ var socket = __webpack_require__(57)('http://localhost:9090');
  * Init Component
  */
 var $window = $(window);
-var $loginPage = $('.login.page');
 var $usernameInput = $('.usernameInput');
 var $messages = $('.messages');
 var $userLists = $('.user-lists');
@@ -19674,10 +19673,9 @@ var $currentInput = $usernameInput.focus();
  * Keyboard Events
  */
 window.selectThis = function (value) {
-    var friendid = value;
-    // console.log(friendid);
-    chat.changeSelectedId(friendid);
-    chat.loadChat(friendid);
+    friendid = value;
+    chat.changeSelectedId();
+    chat.loadChat();
 };
 
 window.removeThis = function (value) {
@@ -19728,7 +19726,6 @@ var chat = {
             userid = socket.id;
         } else {
             // is customer
-            $loginPage.fadeOut();
             username = user;
             chat.setInputFocus();
             userid = socket.id;
@@ -19742,11 +19739,11 @@ var chat = {
         }
     },
 
-    changeSelectedId: function changeSelectedId(friend_id) {
+    changeSelectedId: function changeSelectedId() {
         if (friendid) {
             socket.emit('leaveChat', friendid);
         }
-        friendid = friend_id;
+        console.log('current friend id ' + friendid);
         var data = {
             id: friendid, // Receiver id
             time: new Date().getTime()
@@ -19807,9 +19804,9 @@ var chat = {
         chat.addMessageElement(element, options);
     },
 
-    loadChat: function loadChat(tunnel_id) {
+    loadChat: function loadChat() {
         $.ajax({
-            url: 'admin-chat/' + tunnel_id,
+            url: 'admin-chat/' + friendid,
             type: 'get',
             dataType: 'json',
             success: function success(response) {
