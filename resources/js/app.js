@@ -39,15 +39,16 @@ const $token = $('.secretToken');
  * Vars
  */
 let username;
-let userid;
-let friendid;
+let senderId;
+let receiverId;
 let $currentInput = $usernameInput.focus();
+let isKing;
 
 /**
  * Keyboard Events
  */
 window.selectThis = function(value) {
-    friendid = value;
+    receiverId = value;
     chat.changeSelectedId();
     chat.loadChat();
 }
@@ -94,15 +95,18 @@ const chat = {
         if (token === '#1234') { // is admin !!need to auto-fetch
             username = user;
             chat.setInputFocus();
-            userid = socket.id;
+            senderId = socket.id;
+            isKing = 1;
         } else { // is customer
             username = user;
             chat.setInputFocus();
-            userid = socket.id;
-            friendid = socket.id;
+            senderId = socket.id;
+            receiverId = socket.id;
+            isKing = 0;
             let data = {
-                id: friendid, // Receiver id
+                id: receiverId, // Receiver id
                 username: user,
+                isKing: isKing,
                 time: (new Date()).getTime()
             };            
             socket.emit('user-join', data);
@@ -110,12 +114,12 @@ const chat = {
     },
 
     changeSelectedId: () => {
-        if (friendid) {
-            socket.emit('leaveChat', friendid);
+        if (receiverId) {
+            socket.emit('leaveChat', receiverId);
         }
-        console.log('current friend id '+friendid);
+        console.log('current friend id '+receiverId);
         let data = {
-            id: friendid, // Receiver id
+            id: receiverId, // Receiver id
             time: (new Date()).getTime()
         };
         socket.emit('joinChat', data);
@@ -130,16 +134,16 @@ const chat = {
         // console.log($token);
         if ($token.val().trim() === '#1234') { // Check if admin
             var url = "/dashboard/chat-admin";
-            var tunnel_id = friendid;
+            var tunnel_id = receiverId;
         } else {
             var url = "/customer-chat";
-            var tunnel_id = userid;
+            var tunnel_id = senderId;
         }
         $currentInput.val('');
         chat.setInputFocus();
         let data = {
-            sendId: userid, // Sender id
-            id: friendid, // Receiver id
+            sendId: senderId, // Sender id
+            id: receiverId, // Receiver id
             time: (new Date()).getTime(),
             username: username,
             message: message
@@ -175,7 +179,7 @@ const chat = {
 
     loadChat: () => {
         $.ajax({
-            url: 'admin-chat/'+friendid,
+            url: 'admin-chat/'+receiverId,
             type: 'get',
             dataType: 'json',
             success: function(response){
@@ -258,7 +262,7 @@ const chat = {
  * Events
  */
 socket.on('connect', () => {
-
+    chat.handlePressEnter();
     console.log('connected');
 });
 
@@ -275,7 +279,9 @@ socket.on('receiveMsg', data => {
 socket.on('user-join', (data) => {
 
     // chat.log(data.username + ' is connected');
-    chat.listUser(data);
+    if (isKing) {
+        chat.listUser(data);
+    }
 });
 
 socket.on('user-unjoin', (data) => {
